@@ -1,0 +1,756 @@
+[gd_scene load_steps=15 format=3 uid="uid://bybptmmy533m0"]
+
+[ext_resource type="Script" uid="uid://bnmrjbfo74r5w" path="res://scenes/title/title_cam.gd" id="1_y36ya"]
+[ext_resource type="Shader" uid="uid://wj765fuh47ji" path="res://shaders/DOF.gdshader" id="2_4gorg"]
+[ext_resource type="PackedScene" uid="uid://dyseofaasmst3" path="res://assets/models/spooky_level_9_30.glb" id="3_x86fx"]
+[ext_resource type="Script" uid="uid://c03ekfc2mjl53" path="res://scenes/title/flicker_light.gd" id="4_45y7m"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7hvf5"]
+dof_blur_near_enabled = true
+dof_blur_amount = 0.22
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjwoi"]
+render_priority = 0
+shader = ExtResource("2_4gorg")
+shader_parameter/focus_distance = 71.575
+shader_parameter/focus_range = 1.495
+shader_parameter/max_blur_uv = 0.038
+shader_parameter/depth_power = -0.826
+
+[sub_resource type="QuadMesh" id="QuadMesh_g4gru"]
+material = SubResource("ShaderMaterial_yjwoi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huhm5"]
+roughness = 0.0
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 4.05
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7hvf5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjwoi"]
+albedo_color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[sub_resource type="Environment" id="Environment_7hvf5"]
+background_mode = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds13r"]
+
+[sub_resource type="Animation" id="Animation_yjwoi"]
+resource_name = "title"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g4gru"]
+_data = {
+&"title": SubResource("Animation_yjwoi")
+}
+
+[node name="Title" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.540315, 0.0799597, 0.837655, 0.0561229, 0.996683, -0.0589388, -0.839589, 0.0151661, -0.543011, 8.52183, 1.93545, 15.6602)
+attributes = SubResource("CameraAttributesPractical_7hvf5")
+script = ExtResource("1_y36ya")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0610561, 0, -0.273189)
+mesh = SubResource("QuadMesh_g4gru")
+
+[node name="spooky_level_9_30" parent="." instance=ExtResource("3_x86fx")]
+
+[node name="Cylinder_003" parent="spooky_level_9_30" index="0"]
+transform = Transform3D(0, 0.546498, 0, 0, 0, -0.913386, -2.01815, 0, 0, 80.7732, -36.1645, -7.03278)
+
+[node name="Cube_006" parent="spooky_level_9_30" index="1"]
+transform = Transform3D(0, -0.278171, 0, -2.8213, 0, 0, 0, 0, 13.132, 94.1379, -36.9445, 0.0364552)
+
+[node name="Cube_013" parent="spooky_level_9_30" index="2"]
+transform = Transform3D(0, -0.241874, 0, 0, 0, -1.7886, -3.28318, 0, 0, 88.6632, -33.2642, 18.9239)
+
+[node name="Cube_014" parent="spooky_level_9_30" index="3"]
+transform = Transform3D(0, -0.241874, 0, 0, 0, -2.89292, -19.1512, 0, 0, 78.5183, -32.6133, 32.6748)
+
+[node name="Cube_016" parent="spooky_level_9_30" index="4"]
+transform = Transform3D(-0.780978, 5.62099e-08, -9.23264e-08, -3.41377e-08, 0, 2.11218, 3.41377e-08, 1.28593, 4.03572e-15, 98.9669, -37.6444, 14.3722)
+
+[node name="Cube_017" parent="spooky_level_9_30" index="5"]
+transform = Transform3D(0.780978, 0, 0, 0, 0, 2.11218, 0, -1.28593, 0, 111.211, -37.6444, 20.3856)
+
+[node name="Cube_015" parent="spooky_level_9_30" index="6"]
+transform = Transform3D(0.780978, 0, 0, 0, 0, 1.4865, 0, -1.37607, 0, 72.1884, -36.9785, -36.328)
+
+[node name="Cube_019" parent="spooky_level_9_30" index="7"]
+transform = Transform3D(0.780978, 0, 0, 0, 0, 2.11218, 0, -1.28593, 0, 107.502, -37.6444, 9.20428)
+
+[node name="Cylinder_001" parent="spooky_level_9_30" index="8"]
+transform = Transform3D(0.0106145, 0, 0, 0, 0.0106145, 0, 0, 0, 0.0106145, 77.658, -38.7552, 2.24058)
+
+[node name="Cube_007" parent="spooky_level_9_30" index="9"]
+transform = Transform3D(0.603489, 0, 0, 0, 0.458946, 0, 0, 0, 0.899226, 73.0341, -38.318, -0.0134821)
+
+[node name="Cube_024" parent="spooky_level_9_30" index="10"]
+transform = Transform3D(0.888434, 0, 0, 0, 0.547808, 0, 0, 0, 0.563082, 75.1296, -39.0745, 5.01195)
+
+[node name="Cube_027" parent="spooky_level_9_30" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.0626, -39.4077, -0.699654)
+
+[node name="Cube_028" parent="spooky_level_9_30" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.9953, -35.8822, 9.36919)
+
+[node name="Cube_029" parent="spooky_level_9_30" index="13"]
+transform = Transform3D(-1, 0, -7.11517e-08, 0, 1, 0, 8.74228e-08, 0, -0.813881, 87.5761, -35.8822, -0.469324)
+
+[node name="Cube_030" parent="spooky_level_9_30" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.0027, -38.708, -3.26833)
+
+[node name="Cube_031" parent="spooky_level_9_30" index="15"]
+transform = Transform3D(-1, 0, 9.92982e-08, 0, 0.626233, 0, -8.74228e-08, 0, -1.13584, 91.8461, -39.0853, 0.924905)
+
+[node name="Cube_032" parent="spooky_level_9_30" index="16"]
+transform = Transform3D(-0.0380076, 0, 0, 0, 1, 0, 0, 0, 1.18323, 88.8242, -35.9305, 7.04683)
+
+[node name="Cube_043" parent="spooky_level_9_30" index="17"]
+transform = Transform3D(-0.0236248, 0, 0, 0, 0.196247, 0, 0, 0, 0.735476, 96.6552, -38.6305, 3.72192)
+
+[node name="Cube_047" parent="spooky_level_9_30" index="18"]
+transform = Transform3D(-0.0380076, 0, 0, 0, 1, 0, 0, 0, 1.18323, 86.0596, -35.9305, 3.21438)
+
+[node name="Cube_048" parent="spooky_level_9_30" index="19"]
+transform = Transform3D(-0.0287329, 0, 0, 0, 0.755977, 0, 0, 0, 0.894498, 94.2622, -38.8359, 1.7026)
+
+[node name="Cube_049" parent="spooky_level_9_30" index="20"]
+transform = Transform3D(-0.0287329, 0, 0, 0, 0, -0.894498, 0, 0.755977, 0, 96.7102, -39.685, 3.91262)
+
+[node name="Cube_050" parent="spooky_level_9_30" index="21"]
+transform = Transform3D(-0.0287329, 0, 0, 0, 0, -0.894498, 0, 0.755977, 0, 96.7102, -40.0872, 3.91262)
+
+[node name="Cube_051" parent="spooky_level_9_30" index="22"]
+transform = Transform3D(-0.0287329, 0, 0, 0, 0, -0.894498, 0, 0.755977, 0, 94.3081, -39.3052, -3.31557)
+
+[node name="Cube_052" parent="spooky_level_9_30" index="23"]
+transform = Transform3D(-0.0287329, 0, 0, 0, 0, -0.894498, 0, 0.755977, 0, 94.3081, -39.685, -3.31557)
+
+[node name="Cube_053" parent="spooky_level_9_30" index="24"]
+transform = Transform3D(-0.0287329, 0, 0, 0, 0, -0.894498, 0, 0.755977, 0, 94.3081, -40.0872, -3.31557)
+
+[node name="Cube_054" parent="spooky_level_9_30" index="25"]
+transform = Transform3D(-0.0287329, 0, 0, 0, 0.755977, 0, 0, 0, 0.894498, 94.2622, -38.8359, 0.312871)
+
+[node name="Cube_055" parent="spooky_level_9_30" index="26"]
+transform = Transform3D(-0.0287329, 0, 0, 0, 0.755977, 0, 0, 0, 0.894498, 94.2622, -38.8359, -0.106044)
+
+[node name="Cube_056" parent="spooky_level_9_30" index="27"]
+transform = Transform3D(-0.0287329, 0, 0, 0, 0.755977, 0, 0, 0, 0.894498, 94.2622, -38.8359, -1.46959)
+
+[node name="Cube_057" parent="spooky_level_9_30" index="28"]
+transform = Transform3D(0.0957327, 0, 0, 0, 0.0281011, 0, 0, 0, 0.0957327, 96.8275, -39.2651, 4.37303)
+
+[node name="Cube_058" parent="spooky_level_9_30" index="29"]
+transform = Transform3D(0.0957327, 0, 0, 0, 0.0281011, 0, 0, 0, 0.0957327, 96.8275, -38.8647, 4.37303)
+
+[node name="Cube_070" parent="spooky_level_9_30" index="30"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.5444, -39.3084, -11.8075)
+
+[node name="Plane_003" parent="spooky_level_9_30" index="31"]
+transform = Transform3D(0.154588, 0, 0, 0, 0, -0.117925, 0, 3.32137, 0, 100.835, -39.5931, 43.3508)
+
+[node name="Plane_007" parent="spooky_level_9_30" index="32"]
+transform = Transform3D(0.154588, 0, 0, 0, 0, -0.117925, 0, 3.32137, 0, 101.798, -39.5009, 43.4378)
+
+[node name="Plane_013" parent="spooky_level_9_30" index="33"]
+transform = Transform3D(0.154588, 0, 0, 0, 0, -0.117925, 0, 3.32137, 0, 106.383, -39.4052, 44.9513)
+
+[node name="Cube_073" parent="spooky_level_9_30" index="36"]
+transform = Transform3D(0.915599, 0, 0, 0, 0.636917, 0, 0, 0, 0.432078, 92.6734, -38.005, -27.797)
+
+[node name="Cube_074" parent="spooky_level_9_30" index="37"]
+transform = Transform3D(0.627302, 0, 0, 0, 0.636917, 0, 0, 0, 0.631597, 92.6734, -38.005, -26.5998)
+
+[node name="Cube_088" parent="spooky_level_9_30" index="38"]
+transform = Transform3D(0.618647, 0, 0, 0, 1.54526, 0, 0, 0, 0.0341614, 77.5721, -38.1893, -12.9241)
+
+[node name="Cube_082" parent="spooky_level_9_30" index="41"]
+transform = Transform3D(0.921171, 0, 0, 0, 0.803295, 0, 0, 0, 0.608704, 69.1383, -40.2779, -0.688)
+
+[node name="Cube_086" parent="spooky_level_9_30" index="42"]
+transform = Transform3D(0, 0, 0.901659, 0, 0.450129, 0, -0.659552, 0, 0, 120.67, -38.9163, 3.59781)
+
+[node name="SurfCylinder" parent="spooky_level_9_30" index="44"]
+transform = Transform3D(1, 0, 0, 0, 0.0909078, 0, 0, 0, 1, -68.2763, -71.4224, -22.6436)
+
+[node name="SurfCylinder_001" parent="spooky_level_9_30" index="45"]
+transform = Transform3D(0.72479, 0, 0.300218, 0, 0.0713178, 0, -0.300218, 0, 0.72479, -68.2763, -71.2172, -22.6436)
+
+[node name="SurfCylinder_002" parent="spooky_level_9_30" index="46"]
+transform = Transform3D(0.419844, 0, 0.419844, 0, 0.0687214, 0, -0.419844, 0, 0.419844, -68.2763, -71.0628, -22.6436)
+
+[node name="SurfCylinder_003" parent="spooky_level_9_30" index="47"]
+transform = Transform3D(0.413549, 0, 0.171298, 0, 0.0662487, 0, -0.171298, 0, 0.413549, -68.2763, -70.9272, -22.6436)
+
+[node name="SurfCylinder_004" parent="spooky_level_9_30" index="48"]
+transform = Transform3D(0.224257, 0, 0.224257, 0, 0.0469381, 0, -0.224257, 0, 0.224257, -68.2763, -70.8078, -22.6436)
+
+[node name="Cube_089" parent="spooky_level_9_30" index="49"]
+transform = Transform3D(1, 0, 0, 0, 1.48514, 0, 0, 0, 1, -53.2648, -72.3068, -29.85)
+
+[node name="Cylinder" parent="spooky_level_9_30" index="50"]
+transform = Transform3D(1.18824, 0, 0, 0, 1.7647, 0, 0, 0, 1.18824, -57.9666, -72.2057, -31.4835)
+
+[node name="Cylinder_006" parent="spooky_level_9_30" index="51"]
+transform = Transform3D(0.133097, 0, 0, 0, 0, 0.133097, 0, -0.197668, 0, -68.549, -70.9369, -19.4023)
+
+[node name="Cylinder_008" parent="spooky_level_9_30" index="52"]
+transform = Transform3D(1.18824, 0, 0, 0, 9.01627, 0, 0, 0, 1.18824, -67.6969, -83.4629, -37.256)
+
+[node name="Cylinder_009" parent="spooky_level_9_30" index="53"]
+transform = Transform3D(1.03958, 0, 0, 0, 0, -1.03958, 0, 7.88826, 0, -63.5587, -75.2071, -49.5942)
+
+[node name="Cylinder_010" parent="spooky_level_9_30" index="54"]
+transform = Transform3D(0.148238, 0, 0, 0, 0, 0.148238, 0, -0.220155, 0, -68.5496, -70.8821, -19.3872)
+
+[node name="Cylinder_011" parent="spooky_level_9_30" index="55"]
+transform = Transform3D(1.22132, 0, 0, 0, 1.83458, 0, 0, 0, 1.22132, -81.4672, -73.0681, -29.7416)
+
+[node name="Cube_092" parent="spooky_level_9_30" index="57"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.3331, -17.2732)
+
+[node name="Cube_093" parent="spooky_level_9_30" index="58"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.056, -17.2681)
+
+[node name="Cube_094" parent="spooky_level_9_30" index="59"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.7716, -17.2667)
+
+[node name="Cube_095" parent="spooky_level_9_30" index="60"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.4909, -17.2689)
+
+[node name="Cube_096" parent="spooky_level_9_30" index="61"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.2102, -17.2602)
+
+[node name="Cube_097" parent="spooky_level_9_30" index="62"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.2102, -16.9751)
+
+[node name="Cube_098" parent="spooky_level_9_30" index="63"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.4909, -16.9838)
+
+[node name="Cube_099" parent="spooky_level_9_30" index="64"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.7716, -16.9816)
+
+[node name="Cube_100" parent="spooky_level_9_30" index="65"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.056, -16.983)
+
+[node name="Cube_101" parent="spooky_level_9_30" index="66"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.3331, -16.9881)
+
+[node name="Cube_102" parent="spooky_level_9_30" index="67"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.3293, -16.703)
+
+[node name="Cube_103" parent="spooky_level_9_30" index="68"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.0522, -16.6979)
+
+[node name="Cube_104" parent="spooky_level_9_30" index="69"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.7678, -16.6965)
+
+[node name="Cube_105" parent="spooky_level_9_30" index="70"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.4871, -16.6988)
+
+[node name="Cube_106" parent="spooky_level_9_30" index="71"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.2064, -16.69)
+
+[node name="Cube_107" parent="spooky_level_9_30" index="72"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.2064, -16.405)
+
+[node name="Cube_108" parent="spooky_level_9_30" index="73"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.4871, -16.4137)
+
+[node name="Cube_109" parent="spooky_level_9_30" index="74"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.7678, -16.4115)
+
+[node name="Cube_110" parent="spooky_level_9_30" index="75"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.0522, -16.4129)
+
+[node name="Cube_111" parent="spooky_level_9_30" index="76"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.3293, -16.4179)
+
+[node name="Cube_112" parent="spooky_level_9_30" index="77"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.3331, -16.1367)
+
+[node name="Cube_113" parent="spooky_level_9_30" index="78"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.056, -16.1316)
+
+[node name="Cube_114" parent="spooky_level_9_30" index="79"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.7716, -16.1302)
+
+[node name="Cube_115" parent="spooky_level_9_30" index="80"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.4909, -16.1324)
+
+[node name="Cube_116" parent="spooky_level_9_30" index="81"]
+transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.2102, -16.1237)
+
+[node name="Cube_117" parent="spooky_level_9_30" index="82"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.3331, -17.2732)
+
+[node name="Cube_118" parent="spooky_level_9_30" index="83"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.056, -17.2681)
+
+[node name="Cube_119" parent="spooky_level_9_30" index="84"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.7716, -17.2667)
+
+[node name="Cube_120" parent="spooky_level_9_30" index="85"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.4909, -17.2689)
+
+[node name="Cube_121" parent="spooky_level_9_30" index="86"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.2102, -17.2602)
+
+[node name="Cube_122" parent="spooky_level_9_30" index="87"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.2102, -16.9751)
+
+[node name="Cube_123" parent="spooky_level_9_30" index="88"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.4909, -16.9838)
+
+[node name="Cube_124" parent="spooky_level_9_30" index="89"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.7716, -16.9816)
+
+[node name="Cube_125" parent="spooky_level_9_30" index="90"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.056, -16.983)
+
+[node name="Cube_126" parent="spooky_level_9_30" index="91"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.3331, -16.9881)
+
+[node name="Cube_127" parent="spooky_level_9_30" index="92"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.3293, -16.703)
+
+[node name="Cube_128" parent="spooky_level_9_30" index="93"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.0522, -16.6979)
+
+[node name="Cube_129" parent="spooky_level_9_30" index="94"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.7678, -16.6965)
+
+[node name="Cube_130" parent="spooky_level_9_30" index="95"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.4871, -16.6988)
+
+[node name="Cube_131" parent="spooky_level_9_30" index="96"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.2064, -16.69)
+
+[node name="Cube_132" parent="spooky_level_9_30" index="97"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.2064, -16.405)
+
+[node name="Cube_133" parent="spooky_level_9_30" index="98"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.4871, -16.4137)
+
+[node name="Cube_134" parent="spooky_level_9_30" index="99"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.7678, -16.4115)
+
+[node name="Cube_135" parent="spooky_level_9_30" index="100"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.0522, -16.4129)
+
+[node name="Cube_136" parent="spooky_level_9_30" index="101"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.3293, -16.4179)
+
+[node name="Cube_137" parent="spooky_level_9_30" index="102"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.3331, -16.1367)
+
+[node name="Cube_138" parent="spooky_level_9_30" index="103"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.056, -16.1316)
+
+[node name="Cube_139" parent="spooky_level_9_30" index="104"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.7716, -16.1302)
+
+[node name="Cube_140" parent="spooky_level_9_30" index="105"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.4909, -16.1324)
+
+[node name="Cube_141" parent="spooky_level_9_30" index="106"]
+transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.2102, -16.1237)
+
+[node name="Cube_142" parent="spooky_level_9_30" index="107"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.6448, -72.2849, -26.9157)
+
+[node name="Cube_143" parent="spooky_level_9_30" index="108"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.0767, -71.8154, -27.4847)
+
+[node name="Cube_144" parent="spooky_level_9_30" index="109"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.3538, -71.8154, -27.4796)
+
+[node name="Cube_145" parent="spooky_level_9_30" index="110"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.6382, -71.8154, -27.4783)
+
+[node name="Cube_146" parent="spooky_level_9_30" index="111"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.9189, -71.8154, -27.4805)
+
+[node name="Cube_147" parent="spooky_level_9_30" index="112"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -73.1997, -71.8154, -27.4718)
+
+[node name="Cube_148" parent="spooky_level_9_30" index="113"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -73.1997, -71.8154, -27.1867)
+
+[node name="Cube_149" parent="spooky_level_9_30" index="114"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.9189, -71.8154, -27.1954)
+
+[node name="Cube_150" parent="spooky_level_9_30" index="115"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.6382, -71.8154, -27.1932)
+
+[node name="Cube_151" parent="spooky_level_9_30" index="116"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.3538, -71.8154, -27.1946)
+
+[node name="Cube_152" parent="spooky_level_9_30" index="117"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.0767, -71.8154, -27.1997)
+
+[node name="Cube_153" parent="spooky_level_9_30" index="118"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.0805, -71.8154, -26.9146)
+
+[node name="Cube_154" parent="spooky_level_9_30" index="119"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.3576, -71.8154, -26.9095)
+
+[node name="Cube_155" parent="spooky_level_9_30" index="120"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.642, -71.8154, -26.9081)
+
+[node name="Cube_156" parent="spooky_level_9_30" index="121"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.9227, -71.8154, -26.9103)
+
+[node name="Cube_157" parent="spooky_level_9_30" index="122"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -73.2035, -71.8154, -26.9016)
+
+[node name="Cube_158" parent="spooky_level_9_30" index="123"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -73.2035, -71.8154, -26.6166)
+
+[node name="Cube_159" parent="spooky_level_9_30" index="124"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.9227, -71.8154, -26.6253)
+
+[node name="Cube_160" parent="spooky_level_9_30" index="125"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.642, -71.8154, -26.6231)
+
+[node name="Cube_161" parent="spooky_level_9_30" index="126"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.3576, -71.8154, -26.6244)
+
+[node name="Cube_162" parent="spooky_level_9_30" index="127"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.0805, -71.8154, -26.6295)
+
+[node name="Cube_163" parent="spooky_level_9_30" index="128"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.0767, -71.8154, -26.3483)
+
+[node name="Cube_164" parent="spooky_level_9_30" index="129"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.3538, -71.8154, -26.3432)
+
+[node name="Cube_165" parent="spooky_level_9_30" index="130"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.6382, -71.8154, -26.3418)
+
+[node name="Cube_166" parent="spooky_level_9_30" index="131"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.9189, -71.8154, -26.344)
+
+[node name="Cube_167" parent="spooky_level_9_30" index="132"]
+transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -73.1997, -71.8154, -26.3353)
+
+[node name="Cube_168" parent="spooky_level_9_30" index="133"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.0767, -71.8723, -27.4847)
+
+[node name="Cube_169" parent="spooky_level_9_30" index="134"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.3538, -71.8723, -27.4796)
+
+[node name="Cube_170" parent="spooky_level_9_30" index="135"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.6382, -71.8723, -27.4783)
+
+[node name="Cube_171" parent="spooky_level_9_30" index="136"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.9189, -71.8723, -27.4805)
+
+[node name="Cube_172" parent="spooky_level_9_30" index="137"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -73.1997, -71.8723, -27.4718)
+
+[node name="Cube_173" parent="spooky_level_9_30" index="138"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -73.1997, -71.8723, -27.1867)
+
+[node name="Cube_174" parent="spooky_level_9_30" index="139"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.9189, -71.8723, -27.1954)
+
+[node name="Cube_175" parent="spooky_level_9_30" index="140"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.6382, -71.8723, -27.1932)
+
+[node name="Cube_176" parent="spooky_level_9_30" index="141"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.3538, -71.8723, -27.1946)
+
+[node name="Cube_177" parent="spooky_level_9_30" index="142"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.0767, -71.8723, -27.1997)
+
+[node name="Cube_178" parent="spooky_level_9_30" index="143"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.0805, -71.8723, -26.9146)
+
+[node name="Cube_179" parent="spooky_level_9_30" index="144"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.3576, -71.8723, -26.9095)
+
+[node name="Cube_180" parent="spooky_level_9_30" index="145"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.642, -71.8723, -26.9081)
+
+[node name="Cube_181" parent="spooky_level_9_30" index="146"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.9227, -71.8723, -26.9103)
+
+[node name="Cube_182" parent="spooky_level_9_30" index="147"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -73.2035, -71.8723, -26.9016)
+
+[node name="Cube_183" parent="spooky_level_9_30" index="148"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -73.2035, -71.8723, -26.6166)
+
+[node name="Cube_184" parent="spooky_level_9_30" index="149"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.9227, -71.8723, -26.6253)
+
+[node name="Cube_185" parent="spooky_level_9_30" index="150"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.642, -71.8723, -26.6231)
+
+[node name="Cube_186" parent="spooky_level_9_30" index="151"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.3576, -71.8723, -26.6244)
+
+[node name="Cube_187" parent="spooky_level_9_30" index="152"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.0805, -71.8723, -26.6295)
+
+[node name="Cube_188" parent="spooky_level_9_30" index="153"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.0767, -71.8723, -26.3483)
+
+[node name="Cube_189" parent="spooky_level_9_30" index="154"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.3538, -71.8723, -26.3432)
+
+[node name="Cube_190" parent="spooky_level_9_30" index="155"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.6382, -71.8723, -26.3418)
+
+[node name="Cube_191" parent="spooky_level_9_30" index="156"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.9189, -71.8723, -26.344)
+
+[node name="Cube_192" parent="spooky_level_9_30" index="157"]
+transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -73.1997, -71.8723, -26.3353)
+
+[node name="Cylinder_013" parent="spooky_level_9_30" index="158"]
+transform = Transform3D(0.0341169, -0.00742039, 0.0239288, 0.00776444, -0.0353058, -0.0220187, 0.0238194, 0.022137, -0.0270961, -67.3979, -70.8932, -16.9401)
+
+[node name="Cylinder_012" parent="spooky_level_9_30" index="159"]
+transform = Transform3D(1.02834, 0, 0, 0, 1.67988, 0, 0, 0, 1.02834, -52.6355, -72.3068, -31.4835)
+
+[node name="Cylinder_014" parent="spooky_level_9_30" index="160"]
+transform = Transform3D(0.0825317, 0.0192576, -0.0225215, -0.0159465, 0.125462, -0.00979863, 0.0205199, 0.0200448, 0.0829675, -67.591, -70.6596, -15.8916)
+
+[node name="Cylinder_015" parent="spooky_level_9_30" index="161"]
+transform = Transform3D(-0.0410959, 0.00146065, 0.076138, -0.00257608, 0.128393, -0.00250719, -0.0761008, -0.005135, -0.0410312, -67.6052, -70.6503, -16.7077)
+
+[node name="Cylinder_016" parent="spooky_level_9_30" index="162"]
+transform = Transform3D(-0.0303387, 0.040812, 0.0762315, 0.0231733, 0.12021, -0.0199557, -0.0776492, 0.0199292, -0.0357403, -67.568, -70.7006, -17.3616)
+
+[node name="Torus" parent="spooky_level_9_30" index="171"]
+transform = Transform3D(1.58683, 0, 0, 0, 2.86947, 0, 0, 0, 1.58683, -57.9566, -73.7096, -31.4502)
+
+[node name="Torus_001" parent="spooky_level_9_30" index="172"]
+transform = Transform3D(0.110217, 0.0313134, -0.0300763, -0.0212957, 0.204005, -0.0130856, 0.0274033, 0.0325934, 0.110799, -67.6073, -70.7669, -15.9062)
+
+[node name="Torus_002" parent="spooky_level_9_30" index="173"]
+transform = Transform3D(-0.0548816, 0.00237506, 0.101679, -0.00344022, 0.208772, -0.00334822, -0.101629, -0.00834968, -0.0547951, -67.6047, -70.7598, -16.7051)
+
+[node name="Torus_003" parent="spooky_level_9_30" index="174"]
+transform = Transform3D(-0.0405158, 0.0663616, 0.101803, 0.0309467, 0.195466, -0.0266498, -0.103697, 0.0324055, -0.0477293, -67.6009, -70.8034, -17.3802)
+
+[node name="Cube_090" parent="spooky_level_9_30" index="175"]
+transform = Transform3D(1, 0, 0, 0, 0.21616, 0, 0, 0, 1, -68.1127, -72.2849, -13.6325)
+
+[node name="Cube_194" parent="spooky_level_9_30" index="177"]
+transform = Transform3D(2.17234, 0, 0, 0, 0.799277, 0, 0, 0, 2.66545, 75.8895, -40.0884, 15.3714)
+
+[node name="Cube_195" parent="spooky_level_9_30" index="178"]
+transform = Transform3D(2.87921, 0, 0, 0, 0.799277, 0, 0, 0, 1.39589, 124.918, -40.0884, -0.258544)
+
+[node name="Cube_207" parent="spooky_level_9_30" index="188"]
+transform = Transform3D(0, 0, 1.30508, 0, 0.715736, 0, -1.12183, 0, 0, 100.724, -40.0794, 26.8648)
+
+[node name="Cube_208" parent="spooky_level_9_30" index="189"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 88.6884, -38.9469, 20.5327)
+
+[node name="Cube_210" parent="spooky_level_9_30" index="190"]
+transform = Transform3D(0.939852, 0, 0, 0, 0.939852, 0, 0, 0, 0.469926, 91.656, -38.8882, 20.5327)
+
+[node name="Cube_211" parent="spooky_level_9_30" index="192"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 97.9027, -38.9469, 20.5329)
+
+[node name="Cube_224" parent="spooky_level_9_30" index="198"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.3364, -38.6205, 22.3034)
+
+[node name="Cube_228" parent="spooky_level_9_30" index="199"]
+transform = Transform3D(0.507798, 0, 0, 0, 0.346004, 0, 0, 0, 0.535166, 99.14, -37.9821, 27.4523)
+
+[node name="Cube_229" parent="spooky_level_9_30" index="200"]
+transform = Transform3D(0.507798, 0, 0, 0, 0.346004, 0, 0, 0, 0.535166, 98.1304, -37.9821, 27.4523)
+
+[node name="Cube_230" parent="spooky_level_9_30" index="201"]
+transform = Transform3D(0.507798, 0, 0, 0, 0.346004, 0, 0, 0, 0.535166, 100.15, -37.9821, 27.4523)
+
+[node name="Cube_231" parent="spooky_level_9_30" index="202"]
+transform = Transform3D(0.755149, 0, 0, 0, 0.328922, 0, 0, 0, 0.535166, 99.9098, -38.6654, 27.4525)
+
+[node name="Cube_232" parent="spooky_level_9_30" index="203"]
+transform = Transform3D(1.54161, 0, 0, 0, 0.366683, 0, 0, 0, 0.535166, 99.1441, -39.3569, 27.4523)
+
+[node name="Cube_233" parent="spooky_level_9_30" index="204"]
+transform = Transform3D(0.755149, 0, 0, 0, 0.328922, 0, 0, 0, 0.535166, 98.3826, -38.6654, 27.4525)
+
+[node name="Cylinder_040" parent="spooky_level_9_30" index="214"]
+transform = Transform3D(0.835677, 0, 0, 0, 0.835677, 0, 0, 0, 0.835677, -24.2949, -63.8562, 6.98911)
+
+[node name="Cube" parent="spooky_level_9_30" index="216"]
+visible = false
+
+[node name="Cube_084" parent="spooky_level_9_30" index="238"]
+transform = Transform3D(0.918873, 0, 0, 0, 0.253992, 0, 0, 0, 0.51896, 110.837, -38.8612, -1.2074)
+
+[node name="living_room_tv_screen" parent="spooky_level_9_30" index="282"]
+surface_material_override/0 = SubResource("StandardMaterial3D_huhm5")
+
+[node name="bedroom_door" parent="spooky_level_9_30" index="286"]
+transform = Transform3D(0, -1.04375, 0, 1.01647, 0, 0, 0, 0, -1.00161, -2.9491, 2.15651, 17.0879)
+cast_shadow = 0
+
+[node name="dining_chair_1" parent="spooky_level_9_30" index="301"]
+transform = Transform3D(-0.622442, 0, -0.248583, 0, 0.670245, 0, 0.248583, 0, -0.622442, 5.53252, 0.192673, -8.86985)
+
+[node name="glass_002" parent="spooky_level_9_30" index="367"]
+visible = false
+
+[node name="glass_003" parent="spooky_level_9_30" index="368"]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="spooky_level_9_30"]
+transform = Transform3D(31.8942, 0, 0, 0, 31.8942, 0, 0, 0, 31.8942, -20.4604, 0, 0)
+mesh = SubResource("PlaneMesh_7hvf5")
+surface_material_override/0 = SubResource("StandardMaterial3D_yjwoi")
+
+[node name="Enviroment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
+environment = SubResource("Environment_7hvf5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86139, 6.08676, 0)
+size = Vector3(31.9647, 1, 108.778)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.94352, 6.28413, 0)
+spot_range = 11.2158
+spot_angle = 79.5497
+
+[node name="FlickerLight" type="SpotLight3D" parent="Enviroment"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.0335, 2.10297, 4.76837e-07)
+visible = false
+light_color = Color(0, 0.54902, 0.776471, 1)
+spot_range = 27.231
+spot_attenuation = 0.6
+spot_angle = 69.06
+script = ExtResource("4_45y7m")
+min_energy = 1.845
+max_energy = 6.1
+noise_speed = 18.405
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.78701, 6.11897, -9.67695)
+light_energy = 10.931
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 19.51
+spot_angle = 80.61
+
+[node name="SpotLight3D3" type="OmniLight3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 12.641, 4.56881, 18.7806)
+light_color = Color(0.485862, 0.66793, 1, 1)
+light_indirect_energy = 1.421
+light_bake_mode = 1
+shadow_enabled = true
+shadow_opacity = 0.95
+omni_range = 17.354
+
+[node name="TitleUI" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TitleUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -283.0
+offset_top = -497.0
+offset_right = 283.0
+offset_bottom = -438.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 75
+alignment = 1
+
+[node name="Label" type="Label" parent="TitleUI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_top = 43.0
+offset_right = 225.0
+offset_bottom = 164.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.564706, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.270588, 0, 0, 1)
+theme_override_constants/line_spacing = -19
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 51
+text = "BEWARE:
+THE LIVING ROOM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -123.0
+offset_right = 152.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="play" type="Button" parent="TitleUI/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.827451, 0, 0, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ds13r")
+text = "Play"
+
+[node name="settings" type="Button" parent="TitleUI/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.827451, 0, 0, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ds13r")
+text = "Settings"
+
+[node name="quit" type="Button" parent="TitleUI/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.827451, 0, 0, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ds13r")
+text = "Quit"
+
+[node name="TitleAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g4gru")
+}
+autoplay = "title"
+
+[editable path="spooky_level_9_30"]
