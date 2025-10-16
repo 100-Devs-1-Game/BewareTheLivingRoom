@@ -14,7 +14,8 @@ config/name="Beware: The Living Room"
 run/main_scene="uid://cv4utenljluec"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://dkpywjdce17vr"
-config/icon="res://icon.svg"
+config/icon="uid://cuq1iurxf6mdj"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
@@ -32,6 +33,8 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/size/initial_position_type=3
+mouse_cursor/minimum_display_time=1000
+mouse_cursor/icon="uid://cuq1iurxf6mdj"
 
 [global_group]
 

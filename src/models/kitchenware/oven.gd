@@ -9,6 +9,7 @@ extends Node3D
 var stages: Array = []
 var current_stage: int = 0
 var _current_step: int = 0
+var oven_ready: bool = false
 
 func _ready() -> void:
 	add_to_group("oven")
@@ -33,10 +34,19 @@ func _generate_stages() -> void:
 		stages.append(stage_knobs)
 	current_stage = 0
 	_current_step = 0
+	oven_ready = false
 
 func knob_changed(knob) -> void:
+	if oven_ready:
+		return
+	if current_stage < 0 or current_stage >= stages.size():
+		return
+
 	var current_order = stages[current_stage]
-	
+
+	if _current_step < 0 or _current_step >= current_order.size():
+		_current_step = 0
+
 	if knob.knob_id == current_order[_current_step]:
 		_current_step += 1
 		print("Stage:", current_stage + 1, "Step:", _current_step)
@@ -44,10 +54,11 @@ func knob_changed(knob) -> void:
 			_light_up_stage(current_stage)
 			current_stage += 1
 			_current_step = 0
-			if current_stage == num_stages:
+			_update_stage_lights()
+			if current_stage >= num_stages:
 				_on_oven_ready()
 			else:
-				print("Stage", current_stage + 1, "complete, Next stage activated.")
+				print("Stage", current_stage, "complete, Next stage activated.")
 	else:
 		reset_knobs()
 
@@ -70,11 +81,19 @@ func _light_up_stage(stage_index: int) -> void:
 func _update_stage_lights() -> void:
 	for i in range(stage_lights.size()):
 		var light = stage_lights[i]
-		if light:
+		if not light:
+			continue
+		if i < current_stage:
+			light.light_color = Color(0.0, 1.0, 0.0)
+		else:
 			light.light_color = Color(1.0, 0.0, 0.0)
 
 func _on_oven_ready() -> void:
+	oven_ready = true
 	Eventbus.announced_dialogue.emit("What kind of oven is this.")
-	Eventbus.unlock_called
+	Eventbus.unlock_called.emit(emit_id)
 	$oven_inside_light.visible = true
 	$h.visible = false
+	for knob in get_tree().get_nodes_in_group("oven_knob"):
+		if knob.is_connected("state_changed", Callable(self, "knob_changed")):
+			knob.disconnect("state_changed", Callable(self, "knob_changed"))

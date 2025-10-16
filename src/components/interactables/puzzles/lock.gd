@@ -52,7 +52,6 @@ func generate_code() -> void:
 
 func get_code() -> Array[int]:
 	return correct_code
-	print("get called")
 
 func set_code(code: int) -> void:
 	var s = str(code)

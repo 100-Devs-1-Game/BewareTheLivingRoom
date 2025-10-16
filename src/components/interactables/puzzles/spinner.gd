@@ -40,6 +40,6 @@ func check_correct_rotation() -> void:
 				twister_parent.call("remove_correct")
 			print("this one is incorrect")
 
-func _on_twist_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+func _on_twist_area_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		interact()

@@ -124,6 +124,7 @@ func _retreat() -> void:
 	if audio_global:
 		await audio_global.finished
 	if not kill_player:
+		searching = false
 		_schedule_next_peek()
 		Eventbus.monster_left.emit()
 	else:

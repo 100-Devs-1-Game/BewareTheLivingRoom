@@ -491,8 +491,7 @@ size = Vector3(3.02539, 2.09131, 2.1123)
 script = ExtResource("1_kelw5")
 IntroAnim = NodePath("Entities/IntroCam/IntroAnim")
 IntroCam = NodePath("Entities/IntroCam")
-important_objects = [NodePath("Main Scene/archviz/door/door_03"), NodePath("TwistPuzzle/Spinner/Box"), NodePath("TwistPuzzle/Spinner2/Box"), NodePath("TwistPuzzle/Spinner3/Box"), NodePath("TwistPuzzle/Spinner4/Box"), NodePath("living_room_chair"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_04"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_05"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_06"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_07"), NodePath("Main Scene/archviz/door/door"), NodePath("Main Scene/archviz/cabinet/cabinet_drawer_04/cabinet_drawer_04"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_03/kitchen_cabinet_door"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_09/kitchen_cabinet_door"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_08/kitchen_cabinet_door"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_cabinet_door_02/kitchen_cabinet_doors_01"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_cabinet_door_02/kitchen_cabinet_doors_02"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_cabinet_door_02/kitchen_cabinet_doors_03"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_cabinet_door_02/kitchen_cabinet_doors_04"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_01/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_02/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_03/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_04/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_05/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_06/kitchen_drawer")]
-debug_mode = true
+important_objects = [NodePath("Main Scene/archviz/door/door_03"), NodePath("TwistPuzzle/Spinner/Box"), NodePath("TwistPuzzle/Spinner2/Box"), NodePath("TwistPuzzle/Spinner3/Box"), NodePath("TwistPuzzle/Spinner4/Box"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_04"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_05"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_06"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_07"), NodePath("Main Scene/archviz/door/door"), NodePath("Main Scene/archviz/cabinet/cabinet_drawer_04/cabinet_drawer_04"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_03/kitchen_cabinet_door"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_09/kitchen_cabinet_door"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_08/kitchen_cabinet_door"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_cabinet_door_02/kitchen_cabinet_doors_01"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_cabinet_door_02/kitchen_cabinet_doors_02"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_cabinet_door_02/kitchen_cabinet_doors_03"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_cabinet_door_02/kitchen_cabinet_doors_04"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_01/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_02/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_03/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_04/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_05/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_06/kitchen_drawer"), NodePath("living_room_chair")]
 
 [node name="Camera & Lights" type="Node3D" parent="."]
 
@@ -816,7 +815,6 @@ transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -2.80232
 transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -6.56077, -0.338052, 14.576)
 
 [node name="cabinet_drawer_04" parent="Main Scene/archviz/cabinet" index="3"]
-locked = false
 slide_distance = -1.0
 swap_axis = true
 
@@ -1146,7 +1144,6 @@ parent = NodePath("..")
 metadata/_custom_type_script = "uid://i0qqf878ga1r"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main Scene/Paperhint/InteractionHandler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_yy23q")
 
 [node name="Entities" type="Node3D" parent="."]
@@ -1188,6 +1185,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_b7fhm")
 [node name="Monster" type="Node3D" parent="Entities" node_paths=PackedStringArray("look_targets", "spotlight_node", "audio_global", "animation_player", "game_ref")]
 transform = Transform3D(-3.22967e-07, 4.0617, -4.37114e-08, 0, -1.77543e-07, -1, -7.38863, -1.77543e-07, 1.91069e-15, 3.31556, 7.46777, 18.1223)
 script = ExtResource("42_41gcl")
+wait_before_peek = 10.0
+min_time = 70.0
 look_targets = [NodePath("../CheckingPoints/Marker3D"), NodePath("../CheckingPoints/Marker3D2"), NodePath("../CheckingPoints/Marker3D3"), NodePath("../CheckingPoints/Marker3D4"), NodePath("../CheckingPoints/Marker3D5")]
 pause_time = 0.2
 spotlight_node = NodePath("../Spotlight")
@@ -1659,3 +1658,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23772, 0, 12.0438)
 [editable path="Main Scene/kitchen_area/kitchen_cabinet_08"]
 [editable path="Main Scene/PuzzleBoxes"]
 [editable path="Entities/Player"]
+[editable path="oven"]
