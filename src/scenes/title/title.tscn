@@ -822,6 +822,7 @@ theme_override_constants/separation = 32
 alignment = 1
 
 [node name="play" type="Button" parent="TitleUI/UIButtons"]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.827451, 0, 0, 1)
@@ -837,6 +838,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ds13r")
 text = "Play"
 
 [node name="settings" type="Button" parent="TitleUI/UIButtons"]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.827451, 0, 0, 1)
@@ -852,6 +854,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ds13r")
 text = "Settings"
 
 [node name="quit" type="Button" parent="TitleUI/UIButtons"]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.827451, 0, 0, 1)
