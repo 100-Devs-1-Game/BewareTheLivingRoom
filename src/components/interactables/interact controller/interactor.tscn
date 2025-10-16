@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://1lapcibxv7ew"]
+
+[ext_resource type="Script" uid="uid://i0qqf878ga1r" path="res://components/interactables/interact controller/interactor.gd" id="1_ygc0m"]
+
+[node name="Interactor" type="Area3D"]
+script = ExtResource("1_ygc0m")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

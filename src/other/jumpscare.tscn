@@ -1,0 +1,188 @@
+[gd_scene load_steps=15 format=3 uid="uid://sug4toxv62x2"]
+
+[ext_resource type="Script" uid="uid://ewcfcvkhniqd" path="res://other/jumpscare.gd" id="1_if0p8"]
+[ext_resource type="PackedScene" uid="uid://bq5jymglk30aw" path="res://models/faces/face_01.tscn" id="2_s1jdq"]
+[ext_resource type="Shader" uid="uid://bsgnnfj6vm38q" path="res://other/jumpscare.gdshader" id="3_s1jdq"]
+[ext_resource type="FontFile" uid="uid://cm7ldlxwt3tjr" path="res://assets/font/product_sans_bold.ttf" id="4_s1chm"]
+[ext_resource type="Shader" uid="uid://cfef1hextj8kw" path="res://shaders/horror-esque.gdshader" id="5_2yhvo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yl1a1"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+energy_multiplier = 0.0
+
+[sub_resource type="Sky" id="Sky_s1chm"]
+sky_material = SubResource("ProceduralSkyMaterial_yl1a1")
+
+[sub_resource type="Environment" id="Environment_2yhvo"]
+background_mode = 2
+sky = SubResource("Sky_s1chm")
+
+[sub_resource type="Animation" id="Animation_s1jdq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("face_01:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.213, 0.445059, -2.64417)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("face_01:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.285, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_if0p8"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("face_01:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.29, 0.69, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.45037, 0.445059, -2.64417), Vector3(1.15366, 0.242601, -2.93215), Vector3(0.654498, 0.228638, -2.93215), Vector3(0.00349066, 0.10472, -3.15032)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("face_01:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.29, 0.69, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.285, 0), Vector3(0, 0.16, 0.075), Vector3(-0.017, 0.11, 0.157), Vector3(-0.007, 0.032, 0.243)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yl1a1"]
+_data = {
+&"RESET": SubResource("Animation_s1jdq"),
+&"new_animation": SubResource("Animation_if0p8")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yl1a1"]
+shader = ExtResource("3_s1jdq")
+shader_parameter/intensity = 0.619
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2yhvo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l58n7"]
+shader = ExtResource("5_2yhvo")
+shader_parameter/aberration_strength = 2.56
+shader_parameter/blur_strength = 1.56
+shader_parameter/noise_strength = 0.025
+shader_parameter/vignette_strength = 0.56
+shader_parameter/scanline_strength = 0.009
+shader_parameter/distortion_strength = 0.05
+shader_parameter/ghost_strength = 0.09
+shader_parameter/flicker_strength = 0.003
+
+[node name="jumpscare" type="Node3D" node_paths=PackedStringArray("lighting")]
+script = ExtResource("1_if0p8")
+lighting = NodePath("OmniLight3D")
+flash_speed = 25.04
+flash_strength = 4.26
+base_energy = -4.075
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2yhvo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0, 0, 0, 1)
+shadow_enabled = true
+
+[node name="face_01" parent="." instance=ExtResource("2_s1jdq")]
+transform = Transform3D(-0.98562, 0.0762997, 0.15077, -0.167107, -0.307771, -0.936671, -0.0250651, -0.948397, 0.316095, 0, 0.285, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45)
+light_color = Color(1, 0.545098, 0, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0.355)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_yl1a1")
+}
+autoplay = "new_animation"
+speed_scale = 3.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_yl1a1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Button" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.5
+offset_top = -35.0
+offset_right = 230.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_s1chm")
+theme_override_font_sizes/font_size = 57
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2yhvo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2yhvo")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2yhvo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2yhvo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2yhvo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2yhvo")
+text = "RETURN TO TITLE"
+
+[node name="in_camera_shader" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_l58n7")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="tint_color_blue" type="ColorRect" parent="CanvasLayer/in_camera_shader"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.113725, 0.207843, 0.341176, 0.0980392)
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 4
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/Title" to="." method="_on_title_pressed"]
+[connection signal="finished" from="AudioStreamPlayer2" to="." method="_on_audio_stream_player_finished"]

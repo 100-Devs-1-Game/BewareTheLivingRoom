@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://5nsc2uedy0x4"]
+
+[ext_resource type="Script" uid="uid://dpji7apk0l632" path="res://ui/ingame/tooltips.gd" id="1_0foq0"]
+[ext_resource type="FontFile" uid="uid://cynlwne5wt3h0" path="res://assets/font/product_sans_regular.ttf" id="1_42tbm"]
+
+[node name="Tooltips" type="CanvasLayer" node_paths=PackedStringArray("tooltip")]
+script = ExtResource("1_0foq0")
+tooltip = NodePath("TipText")
+
+[node name="TipText" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -637.5
+offset_top = -130.0
+offset_right = 637.5
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 23
+theme_override_fonts/font = ExtResource("1_42tbm")
+theme_override_font_sizes/font_size = 33
+horizontal_alignment = 1
+vertical_alignment = 1

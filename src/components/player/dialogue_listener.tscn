@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxni0re7dk6hp"]
+
+[ext_resource type="Script" uid="uid://cdixrn1f60e2n" path="res://components/player/dialogue_listener.gd" id="1_w2l4a"]
+[ext_resource type="FontFile" uid="uid://cm7ldlxwt3tjr" path="res://assets/font/product_sans_bold.ttf" id="2_0biai"]
+
+[node name="DialogueListener" type="CanvasLayer" node_paths=PackedStringArray("dialoguer")]
+script = ExtResource("1_w2l4a")
+dialoguer = NodePath("DialogueLabel")
+
+[node name="DialogueLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -255.5
+offset_top = -174.0
+offset_right = 255.5
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_0biai")
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+vertical_alignment = 1

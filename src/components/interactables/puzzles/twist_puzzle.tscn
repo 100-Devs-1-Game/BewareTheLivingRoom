@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciw2o7bb0daar"]
+
+[ext_resource type="Script" uid="uid://c5p7jq06qpbre" path="res://components/interactables/puzzles/twist_puzzle.gd" id="1_qwrfi"]
+[ext_resource type="Script" uid="uid://i0qqf878ga1r" path="res://components/interactables/interact controller/interactor.gd" id="2_purww"]
+[ext_resource type="Script" uid="uid://c5sukd57t1bbu" path="res://components/interactables/puzzles/spinner.gd" id="2_vtugf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8lsh"]
+albedo_color = Color(0.122252, 0.122252, 0.122252, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpfce"]
+size = Vector3(1.16992, 1.12793, 1.22168)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vtugf"]
+size = Vector3(1.88574, 1.60718, 1.92871)
+
+[node name="TwistPuzzle" type="Node3D"]
+script = ExtResource("1_qwrfi")
+
+[node name="Spinner" type="CSGCylinder3D" parent="." node_paths=PackedStringArray("twister_parent", "box_spin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.677979, 0)
+radius = 0.256348
+height = 1.35596
+material = SubResource("StandardMaterial3D_d8lsh")
+script = ExtResource("2_vtugf")
+twister_parent = NodePath("..")
+box_spin = NodePath("Box")
+
+[node name="Box" type="CSGBox3D" parent="Spinner"]
+
+[node name="Pigeon" type="Label3D" parent="Spinner/Box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.500565)
+render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "PIGEON"
+font_size = 49
+outline_size = 0
+
+[node name="Cat" type="Label3D" parent="Spinner/Box"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.502844, -5.96046e-08, 0.0476569)
+render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "Cat"
+font_size = 86
+outline_size = 0
+
+[node name="Dog" type="Label3D" parent="Spinner/Box"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.506926, 0, -0.0154461)
+render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "Dog"
+font_size = 86
+outline_size = 0
+
+[node name="Fox" type="Label3D" parent="Spinner/Box"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00629658, -1.19209e-07, -0.504107)
+render_priority = 1
+modulate = Color(0, 0, 0, 1)
+text = "Fox"
+font_size = 86
+outline_size = 0
+
+[node name="TwistArea" type="Area3D" parent="Spinner/Box" node_paths=PackedStringArray("parent")]
+script = ExtResource("2_purww")
+parent = NodePath("../..")
+click_to_interact = true
+metadata/_custom_type_script = "uid://i0qqf878ga1r"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spinner/Box/TwistArea"]
+shape = SubResource("BoxShape3D_fpfce")
+
+[node name="Spinner2" type="CSGCylinder3D" parent="Spinner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.70716, 0)
+radius = 0.821777
+height = 0.0371211
+sides = 24
+material = SubResource("StandardMaterial3D_d8lsh")
+
+[node name="InteractionHandler" type="Area3D" parent="Spinner" node_paths=PackedStringArray("camera_from", "camera_to", "child_handlers")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.677979, 0)
+script = ExtResource("2_purww")
+disable_collision_on_observe = true
+observe_camera = true
+camera_from = NodePath("../From")
+camera_to = NodePath("../To")
+child_handlers = [NodePath("../Box/TwistArea")]
+metadata/_custom_type_script = "uid://i0qqf878ga1r"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spinner/InteractionHandler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696411, 0)
+shape = SubResource("BoxShape3D_vtugf")
+
+[node name="To" type="Marker3D" parent="Spinner"]
+
+[node name="From" type="Marker3D" parent="Spinner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83094, -2.02383)
+
+[connection signal="input_event" from="Spinner/Box/TwistArea" to="Spinner" method="_on_twist_area_input_event"]

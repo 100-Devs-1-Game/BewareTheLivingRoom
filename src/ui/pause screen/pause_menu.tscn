@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhv6qlccswpr7"]
+
+[ext_resource type="Script" uid="uid://ci70kn8eq6lem" path="res://ui/pause screen/pause_menu.gd" id="1_ehrv4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djib6"]
+bg_color = Color(0.0196078, 0.0196078, 0.0196078, 0.372549)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_18kp1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehrv4"]
+bg_color = Color(0.0823529, 0, 0, 1)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ehrv4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_djib6")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 95
+text = "PAUSED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 315.0
+grow_vertical = 2
+alignment = 1
+
+[node name="resume" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18kp1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_18kp1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_18kp1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ehrv4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_18kp1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_18kp1")
+text = "RESUME"
+
+[node name="settings" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18kp1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_18kp1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_18kp1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ehrv4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_18kp1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_18kp1")
+text = "SETTINGS"
+
+[node name="exit" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18kp1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_18kp1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_18kp1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ehrv4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_18kp1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_18kp1")
+text = "EXIT GAME"

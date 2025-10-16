@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=3 uid="uid://5a11acsfv3qa"]
+
+[ext_resource type="Script" uid="uid://m2r4mvxpglmi" path="res://other/paper.gd" id="1_at1jb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_at1jb"]
+bg_color = Color(0, 0, 0, 0.27451)
+
+[sub_resource type="Shader" id="Shader_y8b02"]
+code = "shader_type canvas_item;
+
+uniform vec3 paper_color = vec3(0.95, 0.92, 0.85);
+uniform float noise_scale = 50.0;
+uniform float noise_strength = 0.05;
+uniform float edge_darkness = 0.1;
+
+// Simple hash-based noise
+float hash(vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+}
+
+float noise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+
+    float a = hash(i);
+    float b = hash(i + vec2(1.0, 0.0));
+    float c = hash(i + vec2(0.0, 1.0));
+    float d = hash(i + vec2(1.0, 1.0));
+
+    vec2 u = f*f*(3.0-2.0*f);
+
+    return mix(a, b, u.x) + (c - a)*u.y*(1.0 - u.x) + (d - b)*u.x*u.y;
+}
+
+void fragment() {
+    vec2 uv = UV * noise_scale;
+
+    // Base paper color
+    vec3 color = paper_color;
+
+    // Add texture noise
+    color += vec3(noise(uv)) * noise_strength;
+
+    // Edge vignette
+    float dist = distance(UV, vec2(0.5));
+    color *= 1.0 - smoothstep(0.45, 0.5, dist) * edge_darkness;
+
+    COLOR = vec4(color, 1.0);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_at1jb"]
+shader = SubResource("Shader_y8b02")
+shader_parameter/paper_color = Vector3(0.95, 0.92, 0.85)
+shader_parameter/noise_scale = 2.155
+shader_parameter/noise_strength = -0.275
+shader_parameter/edge_darkness = 0.045
+
+[node name="paper" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_at1jb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_at1jb")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_at1jb")
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -376.0
+offset_top = 93.0
+offset_right = 376.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.762404, 0.762404, 0.762404, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.370364, 0.370364, 0.370364, 1)
+theme_override_constants/line_spacing = 31
+theme_override_font_sizes/font_size = 34
+text = "Reflections trace shadows across distant kin,
+The sly glimpses nearby, guardians beyond reach.
+Loyal eyes mark sly shadows afar, kin close at hand, secrets hiding in corners,
+Loyalty meets emptiness, reflections converge, wings follow familiar paths.
+
+Spin the animals"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

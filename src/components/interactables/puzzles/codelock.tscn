@@ -1,0 +1,521 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmmtjxfpgacam"]
+
+[ext_resource type="Script" uid="uid://bsnil27yed17h" path="res://components/interactables/puzzles/lock.gd" id="1_ip4yt"]
+[ext_resource type="Script" uid="uid://i0qqf878ga1r" path="res://components/interactables/interact controller/interactor.gd" id="2_5khlb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eo86j"]
+albedo_color = Color(0.389287, 0.389287, 0.389287, 1)
+metallic = 1.0
+metallic_specular = 0.63
+roughness = 0.4
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_55uyo"]
+data = PackedVector3Array(-0.154509, 0.101563, -0.475528, 0.154509, 0.101563, -0.475528, 0, 0.101563, 0, -0.154509, -0.101563, -0.475528, 0.154509, -0.101563, -0.475528, 0.154509, 0.101563, -0.475528, 0.404508, -0.101563, -0.293893, 0.154509, -0.101563, -0.475528, 0.5, -0.101563, 0, 0.154509, -0.101563, -0.475528, 0.404508, -0.101563, -0.293893, 0.404508, 0.101563, -0.293893, 0.404508, -0.101563, -0.293893, 0.5, -0.101563, 0, 0.5, 0.101563, 0, -0.154509, -0.101563, 0.475528, 0.154508, -0.101563, 0.475528, 0.5, -0.101563, 0, 0.404509, -0.101563, 0.293893, 0.154508, -0.101563, 0.475528, 0.154508, 0.101563, 0.475528, 0.154508, -0.101563, 0.475528, 0.404509, -0.101563, 0.293893, 0.5, -0.101563, 0, 0.5, -0.101563, 0, 0.404509, -0.101563, 0.293893, 0.404509, 0.101563, 0.293893, 0.404508, 0.101563, -0.293893, 0.154509, 0.101563, -0.475528, 0.154509, -0.101563, -0.475528, 0.154509, -0.101563, -0.475528, -0.154509, -0.101563, -0.475528, 0.5, -0.101563, 0, 0.154509, 0.101563, -0.475528, 0.404508, 0.101563, -0.293893, 0, 0.101563, 0, 0.5, 0.101563, 0, 0.404508, 0.101563, -0.293893, 0.404508, -0.101563, -0.293893, 0.404508, 0.101563, -0.293893, 0.5, 0.101563, 0, 0, 0.101563, 0, -0.154509, 0.101563, 0.475528, 0.154508, 0.101563, 0.475528, 0.154508, -0.101563, 0.475528, 0.404509, 0.101563, 0.293893, 0.154508, 0.101563, 0.475528, 0, 0.101563, 0, 0.404509, 0.101563, 0.293893, 0.5, 0.101563, 0, 0.5, -0.101563, 0, 0.154508, 0.101563, 0.475528, 0.404509, 0.101563, 0.293893, 0.404509, -0.101563, 0.293893, 0.5, 0.101563, 0, 0.404509, 0.101563, 0.293893, 0, 0.101563, 0, -0.404508, 0.101563, -0.293893, -0.5, 0.101563, -4.37114e-08, -0.5, -0.101563, -4.37114e-08, -0.154509, -0.101563, -0.475528, -0.404508, -0.101563, -0.293893, 0.5, -0.101563, 0, -0.404508, -0.101563, -0.293893, -0.5, -0.101563, -4.37114e-08, 0.5, -0.101563, 0, -0.404508, -0.101563, -0.293893, -0.154509, -0.101563, -0.475528, -0.154509, 0.101563, -0.475528, -0.404509, -0.101563, 0.293893, -0.5, -0.101563, -4.37114e-08, -0.5, 0.101563, -4.37114e-08, -0.154509, -0.101563, 0.475528, -0.404509, -0.101563, 0.293893, -0.404509, 0.101563, 0.293893, -0.5, -0.101563, -4.37114e-08, -0.404509, -0.101563, 0.293893, 0.5, -0.101563, 0, -0.404509, -0.101563, 0.293893, -0.154509, -0.101563, 0.475528, 0.5, -0.101563, 0, 0.154508, -0.101563, 0.475528, -0.154509, -0.101563, 0.475528, -0.154509, 0.101563, 0.475528, -0.154509, 0.101563, -0.475528, -0.404508, 0.101563, -0.293893, -0.404508, -0.101563, -0.293893, -0.5, -0.101563, -4.37114e-08, -0.404508, -0.101563, -0.293893, -0.404508, 0.101563, -0.293893, -0.5, 0.101563, -4.37114e-08, -0.404508, 0.101563, -0.293893, 0, 0.101563, 0, 0.154509, 0.101563, -0.475528, -0.154509, 0.101563, -0.475528, -0.154509, -0.101563, -0.475528, -0.404508, 0.101563, -0.293893, -0.154509, 0.101563, -0.475528, 0, 0.101563, 0, -0.5, 0.101563, -4.37114e-08, -0.404509, 0.101563, 0.293893, -0.404509, -0.101563, 0.293893, -0.404509, 0.101563, 0.293893, -0.5, 0.101563, -4.37114e-08, 0, 0.101563, 0, -0.404509, 0.101563, 0.293893, -0.154509, 0.101563, 0.475528, -0.154509, -0.101563, 0.475528, -0.154509, 0.101563, 0.475528, -0.404509, 0.101563, 0.293893, 0, 0.101563, 0, 0.154508, 0.101563, 0.475528, -0.154509, 0.101563, 0.475528, 0, 0.101563, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ip4yt"]
+albedo_color = Color(1, 0, 0.160784, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w15ig"]
+size = Vector3(2.75024, 1.80176, 1.81616)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5khlb"]
+height = 1.53223
+
+[node name="Lock" type="RigidBody3D" node_paths=PackedStringArray("interactor")]
+freeze = true
+script = ExtResource("1_ip4yt")
+interactor = NodePath("InteractionHandler")
+
+[node name="FirstDigit" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.03116e-08, -0.235902, 0, 0.235902, -1.03116e-08, 0, 0, 0, 0.235902, -0.0943608, 0, 0.00154302)
+height = 0.203125
+sides = 10
+material = SubResource("StandardMaterial3D_eo86j")
+
+[node name="0" type="Label3D" parent="FirstDigit"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0.478046)
+pixel_size = 0.0006
+render_priority = 1
+text = "0"
+font_size = 293
+outline_size = 0
+
+[node name="1" type="Label3D" parent="FirstDigit"]
+transform = Transform3D(7.57666e-10, 0.803608, 0.595159, -1, -1.81406e-08, 2.57672e-08, 3.15033e-08, -0.595159, 0.803608, 0.283433, 0, 0.384825)
+pixel_size = 0.0006
+render_priority = 1
+text = "1"
+font_size = 293
+outline_size = 0
+
+[node name="2" type="Label3D" parent="FirstDigit"]
+transform = Transform3D(1.07856e-08, 0.314705, 0.94919, -1, 3.22997e-09, 1.02921e-08, 1.73108e-10, -0.94919, 0.314705, 0.453156, -2.98023e-08, 0.146364)
+pixel_size = 0.0006
+render_priority = 1
+text = "2"
+font_size = 293
+outline_size = 0
+
+[node name="3" type="Label3D" parent="FirstDigit"]
+transform = Transform3D(3.35334e-10, -0.307606, 0.951514, -1, 3.0432e-08, 1.01905e-08, -3.20912e-08, -0.951514, -0.307606, 0.452665, 0, -0.152252)
+pixel_size = 0.0006
+render_priority = 1
+text = "3"
+font_size = 293
+outline_size = 0
+
+[node name="4" type="Label3D" parent="FirstDigit"]
+transform = Transform3D(-2.68581e-08, -0.807218, 0.590254, -1, 5.22708e-08, 2.59817e-08, -5.18259e-08, -0.590254, -0.807218, 0.275217, 2.98023e-08, -0.388973)
+pixel_size = 0.0006
+render_priority = 1
+text = "4"
+font_size = 293
+outline_size = 0
+
+[node name="5" type="Label3D" parent="FirstDigit"]
+transform = Transform3D(-6.0313e-08, -0.999973, 0.00741752, -1, 6.06964e-08, 5.14583e-08, -5.19071e-08, -0.00741752, -0.999973, 0.00327015, 2.98023e-08, -0.476949)
+pixel_size = 0.0006
+render_priority = 1
+text = "5"
+font_size = 293
+outline_size = 0
+
+[node name="6" type="Label3D" parent="FirstDigit"]
+transform = Transform3D(-8.76734e-08, -0.812979, -0.582293, -1, 5.25226e-08, 7.72353e-08, -3.22071e-08, 0.582293, -0.812979, -0.290632, 5.96046e-08, -0.378369)
+pixel_size = 0.0006
+render_priority = 1
+text = "6"
+font_size = 293
+outline_size = 0
+
+[node name="7" type="Label3D" parent="FirstDigit"]
+transform = Transform3D(-9.82079e-08, -0.306493, -0.951873, -1, 3.03834e-08, 9.33902e-08, 2.9771e-10, 0.951873, -0.306493, -0.453531, 8.9407e-08, -0.144601)
+pixel_size = 0.0006
+render_priority = 1
+text = "7"
+font_size = 293
+outline_size = 0
+
+[node name="8" type="Label3D" parent="FirstDigit"]
+transform = Transform3D(-8.75392e-08, 0.314059, -0.949404, -1, 3.2582e-09, 9.32822e-08, 3.23895e-08, 0.949404, 0.314059, -0.451752, 8.9407e-08, 0.150587)
+pixel_size = 0.0006
+render_priority = 1
+text = "8"
+font_size = 293
+outline_size = 0
+
+[node name="9" type="Label3D" parent="FirstDigit"]
+transform = Transform3D(-5.91366e-08, 0.823107, -0.567887, -1, -1.8993e-08, 7.66056e-08, 5.22687e-08, 0.567887, 0.823107, -0.278468, 5.96046e-08, 0.38789)
+pixel_size = 0.0006
+render_priority = 1
+text = "9"
+font_size = 293
+outline_size = 0
+
+[node name="Clicker" type="Area3D" parent="FirstDigit"]
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="FirstDigit/Clicker"]
+transform = Transform3D(1.10261, -3.55271e-15, 0, 0, 0.84547, 0, 0, 0, 1.10261, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_55uyo")
+
+[node name="SecondDigit" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.03116e-08, -0.235902, 0, 0.235902, -1.03116e-08, 0, 0, 0, 0.235902, -0.0471804, 0, 0.00154302)
+height = 0.203125
+sides = 10
+material = SubResource("StandardMaterial3D_eo86j")
+
+[node name="0" type="Label3D" parent="SecondDigit"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0.478046)
+pixel_size = 0.0006
+render_priority = 1
+text = "0"
+font_size = 293
+outline_size = 0
+
+[node name="1" type="Label3D" parent="SecondDigit"]
+transform = Transform3D(7.57666e-10, 0.803608, 0.595159, -1, -1.81406e-08, 2.57672e-08, 3.15033e-08, -0.595159, 0.803608, 0.283433, 0, 0.384825)
+pixel_size = 0.0006
+render_priority = 1
+text = "1"
+font_size = 293
+outline_size = 0
+
+[node name="2" type="Label3D" parent="SecondDigit"]
+transform = Transform3D(1.07856e-08, 0.314705, 0.94919, -1, 3.22997e-09, 1.02921e-08, 1.73108e-10, -0.94919, 0.314705, 0.453156, -2.98023e-08, 0.146364)
+pixel_size = 0.0006
+render_priority = 1
+text = "2"
+font_size = 293
+outline_size = 0
+
+[node name="3" type="Label3D" parent="SecondDigit"]
+transform = Transform3D(3.35334e-10, -0.307606, 0.951514, -1, 3.0432e-08, 1.01905e-08, -3.20912e-08, -0.951514, -0.307606, 0.452665, 0, -0.152252)
+pixel_size = 0.0006
+render_priority = 1
+text = "3"
+font_size = 293
+outline_size = 0
+
+[node name="4" type="Label3D" parent="SecondDigit"]
+transform = Transform3D(-2.68581e-08, -0.807218, 0.590254, -1, 5.22708e-08, 2.59817e-08, -5.18259e-08, -0.590254, -0.807218, 0.275217, 2.98023e-08, -0.388973)
+pixel_size = 0.0006
+render_priority = 1
+text = "4"
+font_size = 293
+outline_size = 0
+
+[node name="5" type="Label3D" parent="SecondDigit"]
+transform = Transform3D(-6.0313e-08, -0.999973, 0.00741752, -1, 6.06964e-08, 5.14583e-08, -5.19071e-08, -0.00741752, -0.999973, 0.00327015, 2.98023e-08, -0.476949)
+pixel_size = 0.0006
+render_priority = 1
+text = "5"
+font_size = 293
+outline_size = 0
+
+[node name="6" type="Label3D" parent="SecondDigit"]
+transform = Transform3D(-8.76734e-08, -0.812979, -0.582293, -1, 5.25226e-08, 7.72353e-08, -3.22071e-08, 0.582293, -0.812979, -0.290632, 5.96046e-08, -0.378369)
+pixel_size = 0.0006
+render_priority = 1
+text = "6"
+font_size = 293
+outline_size = 0
+
+[node name="7" type="Label3D" parent="SecondDigit"]
+transform = Transform3D(-9.82079e-08, -0.306493, -0.951873, -1, 3.03834e-08, 9.33902e-08, 2.9771e-10, 0.951873, -0.306493, -0.453531, 8.9407e-08, -0.144601)
+pixel_size = 0.0006
+render_priority = 1
+text = "7"
+font_size = 293
+outline_size = 0
+
+[node name="8" type="Label3D" parent="SecondDigit"]
+transform = Transform3D(-8.75392e-08, 0.314059, -0.949404, -1, 3.2582e-09, 9.32822e-08, 3.23895e-08, 0.949404, 0.314059, -0.451752, 8.9407e-08, 0.150587)
+pixel_size = 0.0006
+render_priority = 1
+text = "8"
+font_size = 293
+outline_size = 0
+
+[node name="9" type="Label3D" parent="SecondDigit"]
+transform = Transform3D(-5.91366e-08, 0.823107, -0.567887, -1, -1.8993e-08, 7.66056e-08, 5.22687e-08, 0.567887, 0.823107, -0.278468, 5.96046e-08, 0.38789)
+pixel_size = 0.0006
+render_priority = 1
+text = "9"
+font_size = 293
+outline_size = 0
+
+[node name="Clicker" type="Area3D" parent="SecondDigit"]
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="SecondDigit/Clicker"]
+transform = Transform3D(1.10261, -3.55271e-15, 0, 0, 0.835528, 0, 0, 0, 1.10261, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_55uyo")
+
+[node name="ThirdDigit" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.03116e-08, -0.235902, 0, 0.235902, -1.03116e-08, 0, 0, 0, 0.235902, -2.33715e-10, 0, 0.00154302)
+height = 0.203125
+sides = 10
+material = SubResource("StandardMaterial3D_eo86j")
+
+[node name="0" type="Label3D" parent="ThirdDigit"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0.478046)
+pixel_size = 0.0006
+render_priority = 1
+text = "0"
+font_size = 293
+outline_size = 0
+
+[node name="1" type="Label3D" parent="ThirdDigit"]
+transform = Transform3D(7.57666e-10, 0.803608, 0.595159, -1, -1.81406e-08, 2.57672e-08, 3.15033e-08, -0.595159, 0.803608, 0.283433, 0, 0.384825)
+pixel_size = 0.0006
+render_priority = 1
+text = "1"
+font_size = 293
+outline_size = 0
+
+[node name="2" type="Label3D" parent="ThirdDigit"]
+transform = Transform3D(1.07856e-08, 0.314705, 0.94919, -1, 3.22997e-09, 1.02921e-08, 1.73108e-10, -0.94919, 0.314705, 0.453156, -2.98023e-08, 0.146364)
+pixel_size = 0.0006
+render_priority = 1
+text = "2"
+font_size = 293
+outline_size = 0
+
+[node name="3" type="Label3D" parent="ThirdDigit"]
+transform = Transform3D(3.35334e-10, -0.307606, 0.951514, -1, 3.0432e-08, 1.01905e-08, -3.20912e-08, -0.951514, -0.307606, 0.452665, 0, -0.152252)
+pixel_size = 0.0006
+render_priority = 1
+text = "3"
+font_size = 293
+outline_size = 0
+
+[node name="4" type="Label3D" parent="ThirdDigit"]
+transform = Transform3D(-2.68581e-08, -0.807218, 0.590254, -1, 5.22708e-08, 2.59817e-08, -5.18259e-08, -0.590254, -0.807218, 0.275217, 2.98023e-08, -0.388973)
+pixel_size = 0.0006
+render_priority = 1
+text = "4"
+font_size = 293
+outline_size = 0
+
+[node name="5" type="Label3D" parent="ThirdDigit"]
+transform = Transform3D(-6.0313e-08, -0.999973, 0.00741752, -1, 6.06964e-08, 5.14583e-08, -5.19071e-08, -0.00741752, -0.999973, 0.00327015, 2.98023e-08, -0.476949)
+pixel_size = 0.0006
+render_priority = 1
+text = "5"
+font_size = 293
+outline_size = 0
+
+[node name="6" type="Label3D" parent="ThirdDigit"]
+transform = Transform3D(-8.76734e-08, -0.812979, -0.582293, -1, 5.25226e-08, 7.72353e-08, -3.22071e-08, 0.582293, -0.812979, -0.290632, 5.96046e-08, -0.378369)
+pixel_size = 0.0006
+render_priority = 1
+text = "6"
+font_size = 293
+outline_size = 0
+
+[node name="7" type="Label3D" parent="ThirdDigit"]
+transform = Transform3D(-9.82079e-08, -0.306493, -0.951873, -1, 3.03834e-08, 9.33902e-08, 2.9771e-10, 0.951873, -0.306493, -0.453531, 8.9407e-08, -0.144601)
+pixel_size = 0.0006
+render_priority = 1
+text = "7"
+font_size = 293
+outline_size = 0
+
+[node name="8" type="Label3D" parent="ThirdDigit"]
+transform = Transform3D(-8.75392e-08, 0.314059, -0.949404, -1, 3.2582e-09, 9.32822e-08, 3.23895e-08, 0.949404, 0.314059, -0.451752, 8.9407e-08, 0.150587)
+pixel_size = 0.0006
+render_priority = 1
+text = "8"
+font_size = 293
+outline_size = 0
+
+[node name="9" type="Label3D" parent="ThirdDigit"]
+transform = Transform3D(-5.91366e-08, 0.823107, -0.567887, -1, -1.8993e-08, 7.66056e-08, 5.22687e-08, 0.567887, 0.823107, -0.278468, 5.96046e-08, 0.38789)
+pixel_size = 0.0006
+render_priority = 1
+text = "9"
+font_size = 293
+outline_size = 0
+
+[node name="Clicker" type="Area3D" parent="ThirdDigit"]
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="ThirdDigit/Clicker"]
+transform = Transform3D(1.10261, -3.55271e-15, 0, 0, 0.806084, 0, 0, 0, 1.10261, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_55uyo")
+
+[node name="FourthDigit" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.03116e-08, -0.235902, 0, 0.235902, -1.03116e-08, 0, 0, 0, 0.235902, 0.0471804, 0, 0.00154302)
+height = 0.203125
+sides = 10
+material = SubResource("StandardMaterial3D_eo86j")
+
+[node name="0" type="Label3D" parent="FourthDigit"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0.478046)
+pixel_size = 0.0006
+render_priority = 1
+text = "0"
+font_size = 293
+outline_size = 0
+
+[node name="1" type="Label3D" parent="FourthDigit"]
+transform = Transform3D(7.57666e-10, 0.803608, 0.595159, -1, -1.81406e-08, 2.57672e-08, 3.15033e-08, -0.595159, 0.803608, 0.283433, 0, 0.384825)
+pixel_size = 0.0006
+render_priority = 1
+text = "1"
+font_size = 293
+outline_size = 0
+
+[node name="2" type="Label3D" parent="FourthDigit"]
+transform = Transform3D(1.07856e-08, 0.314705, 0.94919, -1, 3.22997e-09, 1.02921e-08, 1.73108e-10, -0.94919, 0.314705, 0.453156, -2.98023e-08, 0.146364)
+pixel_size = 0.0006
+render_priority = 1
+text = "2"
+font_size = 293
+outline_size = 0
+
+[node name="3" type="Label3D" parent="FourthDigit"]
+transform = Transform3D(3.35334e-10, -0.307606, 0.951514, -1, 3.0432e-08, 1.01905e-08, -3.20912e-08, -0.951514, -0.307606, 0.452665, 0, -0.152252)
+pixel_size = 0.0006
+render_priority = 1
+text = "3"
+font_size = 293
+outline_size = 0
+
+[node name="4" type="Label3D" parent="FourthDigit"]
+transform = Transform3D(-2.68581e-08, -0.807218, 0.590254, -1, 5.22708e-08, 2.59817e-08, -5.18259e-08, -0.590254, -0.807218, 0.275217, 2.98023e-08, -0.388973)
+pixel_size = 0.0006
+render_priority = 1
+text = "4"
+font_size = 293
+outline_size = 0
+
+[node name="5" type="Label3D" parent="FourthDigit"]
+transform = Transform3D(-6.0313e-08, -0.999973, 0.00741752, -1, 6.06964e-08, 5.14583e-08, -5.19071e-08, -0.00741752, -0.999973, 0.00327015, 2.98023e-08, -0.476949)
+pixel_size = 0.0006
+render_priority = 1
+text = "5"
+font_size = 293
+outline_size = 0
+
+[node name="6" type="Label3D" parent="FourthDigit"]
+transform = Transform3D(-8.76734e-08, -0.812979, -0.582293, -1, 5.25226e-08, 7.72353e-08, -3.22071e-08, 0.582293, -0.812979, -0.290632, 5.96046e-08, -0.378369)
+pixel_size = 0.0006
+render_priority = 1
+text = "6"
+font_size = 293
+outline_size = 0
+
+[node name="7" type="Label3D" parent="FourthDigit"]
+transform = Transform3D(-9.82079e-08, -0.306493, -0.951873, -1, 3.03834e-08, 9.33902e-08, 2.9771e-10, 0.951873, -0.306493, -0.453531, 8.9407e-08, -0.144601)
+pixel_size = 0.0006
+render_priority = 1
+text = "7"
+font_size = 293
+outline_size = 0
+
+[node name="8" type="Label3D" parent="FourthDigit"]
+transform = Transform3D(-8.75392e-08, 0.314059, -0.949404, -1, 3.2582e-09, 9.32822e-08, 3.23895e-08, 0.949404, 0.314059, -0.451752, 8.9407e-08, 0.150587)
+pixel_size = 0.0006
+render_priority = 1
+text = "8"
+font_size = 293
+outline_size = 0
+
+[node name="9" type="Label3D" parent="FourthDigit"]
+transform = Transform3D(-5.91366e-08, 0.823107, -0.567887, -1, -1.8993e-08, 7.66056e-08, 5.22687e-08, 0.567887, 0.823107, -0.278468, 5.96046e-08, 0.38789)
+pixel_size = 0.0006
+render_priority = 1
+text = "9"
+font_size = 293
+outline_size = 0
+
+[node name="Clicker" type="Area3D" parent="FourthDigit"]
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="FourthDigit/Clicker"]
+transform = Transform3D(1.10261, -3.55271e-15, 0, 0, 0.848662, 0, 0, 0, 1.10261, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_55uyo")
+
+[node name="FifthDigit" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.03116e-08, -0.235902, 0, 0.235902, -1.03116e-08, 0, 0, 0, 0.235902, 0.0943608, 0, 0.00154302)
+height = 0.203125
+sides = 10
+material = SubResource("StandardMaterial3D_eo86j")
+
+[node name="0" type="Label3D" parent="FifthDigit"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0.478046)
+pixel_size = 0.0006
+render_priority = 1
+text = "0"
+font_size = 293
+outline_size = 0
+
+[node name="1" type="Label3D" parent="FifthDigit"]
+transform = Transform3D(7.57666e-10, 0.803608, 0.595159, -1, -1.81406e-08, 2.57672e-08, 3.15033e-08, -0.595159, 0.803608, 0.283433, 0, 0.384825)
+pixel_size = 0.0006
+render_priority = 1
+text = "1"
+font_size = 293
+outline_size = 0
+
+[node name="2" type="Label3D" parent="FifthDigit"]
+transform = Transform3D(1.07856e-08, 0.314705, 0.94919, -1, 3.22997e-09, 1.02921e-08, 1.73108e-10, -0.94919, 0.314705, 0.453156, -2.98023e-08, 0.146364)
+pixel_size = 0.0006
+render_priority = 1
+text = "2"
+font_size = 293
+outline_size = 0
+
+[node name="3" type="Label3D" parent="FifthDigit"]
+transform = Transform3D(3.35334e-10, -0.307606, 0.951514, -1, 3.0432e-08, 1.01905e-08, -3.20912e-08, -0.951514, -0.307606, 0.452665, 0, -0.152252)
+pixel_size = 0.0006
+render_priority = 1
+text = "3"
+font_size = 293
+outline_size = 0
+
+[node name="4" type="Label3D" parent="FifthDigit"]
+transform = Transform3D(-2.68581e-08, -0.807218, 0.590254, -1, 5.22708e-08, 2.59817e-08, -5.18259e-08, -0.590254, -0.807218, 0.275217, 2.98023e-08, -0.388973)
+pixel_size = 0.0006
+render_priority = 1
+text = "4"
+font_size = 293
+outline_size = 0
+
+[node name="5" type="Label3D" parent="FifthDigit"]
+transform = Transform3D(-6.0313e-08, -0.999973, 0.00741752, -1, 6.06964e-08, 5.14583e-08, -5.19071e-08, -0.00741752, -0.999973, 0.00327015, 2.98023e-08, -0.476949)
+pixel_size = 0.0006
+render_priority = 1
+text = "5"
+font_size = 293
+outline_size = 0
+
+[node name="6" type="Label3D" parent="FifthDigit"]
+transform = Transform3D(-8.76734e-08, -0.812979, -0.582293, -1, 5.25226e-08, 7.72353e-08, -3.22071e-08, 0.582293, -0.812979, -0.290632, 5.96046e-08, -0.378369)
+pixel_size = 0.0006
+render_priority = 1
+text = "6"
+font_size = 293
+outline_size = 0
+
+[node name="7" type="Label3D" parent="FifthDigit"]
+transform = Transform3D(-9.82079e-08, -0.306493, -0.951873, -1, 3.03834e-08, 9.33902e-08, 2.9771e-10, 0.951873, -0.306493, -0.453531, 8.9407e-08, -0.144601)
+pixel_size = 0.0006
+render_priority = 1
+text = "7"
+font_size = 293
+outline_size = 0
+
+[node name="8" type="Label3D" parent="FifthDigit"]
+transform = Transform3D(-8.75392e-08, 0.314059, -0.949404, -1, 3.2582e-09, 9.32822e-08, 3.23895e-08, 0.949404, 0.314059, -0.451752, 8.9407e-08, 0.150587)
+pixel_size = 0.0006
+render_priority = 1
+text = "8"
+font_size = 293
+outline_size = 0
+
+[node name="9" type="Label3D" parent="FifthDigit"]
+transform = Transform3D(-5.91366e-08, 0.823107, -0.567887, -1, -1.8993e-08, 7.66056e-08, 5.22687e-08, 0.567887, 0.823107, -0.278468, 5.96046e-08, 0.38789)
+pixel_size = 0.0006
+render_priority = 1
+text = "9"
+font_size = 293
+outline_size = 0
+
+[node name="Clicker" type="Area3D" parent="FifthDigit"]
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="FifthDigit/Clicker"]
+transform = Transform3D(1.10261, 0, 0, 0, 0.812071, 0, 0, 0, 1.10261, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_55uyo")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.235902, 0, 0, 0, 0.0485715, 0, 0, 0, 0.235902, -2.33715e-10, 0, 0.00154302)
+size = Vector3(1.53809, 1.45532, 0.949219)
+material = SubResource("StandardMaterial3D_ip4yt")
+
+[node name="InteractionHandler" type="Area3D" parent="." node_paths=PackedStringArray("parent", "camera_from", "camera_to")]
+transform = Transform3D(0.235902, 0, 0, 0, 0.235902, 0, 0, 0, 0.235902, -2.33715e-10, 0, 0.00154302)
+script = ExtResource("2_5khlb")
+parent = NodePath("..")
+disable_collision_on_observe = true
+observe_camera = true
+camera_from = NodePath("../From")
+camera_to = NodePath("../To")
+metadata/_custom_type_script = "uid://i0qqf878ga1r"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionHandler"]
+shape = SubResource("BoxShape3D_w15ig")
+
+[node name="From" type="Marker3D" parent="."]
+transform = Transform3D(0.235902, 0, 0, 0, 0.235902, 0, 0, 0, 0.235902, -2.33715e-10, 0, 0.94515)
+
+[node name="To" type="Marker3D" parent="."]
+transform = Transform3D(0.235902, 0, 0, 0, 0.235902, 0, 0, 0, 0.235902, -2.33715e-10, 0, 0.00154302)
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.03116e-08, -0.235902, 0, 0.235902, -1.03116e-08, 0, 0, 0, 0.235902, -2.33715e-10, 0, 0.00154302)
+shape = SubResource("CylinderShape3D_5khlb")
+
+[connection signal="input_event" from="FirstDigit/Clicker" to="." method="first_clicker"]
+[connection signal="input_event" from="SecondDigit/Clicker" to="." method="second_clicker"]
+[connection signal="input_event" from="ThirdDigit/Clicker" to="." method="third_clicker"]
+[connection signal="input_event" from="FourthDigit/Clicker" to="." method="fourth_clicker"]
+[connection signal="input_event" from="FifthDigit/Clicker" to="." method="fifth_clicker"]

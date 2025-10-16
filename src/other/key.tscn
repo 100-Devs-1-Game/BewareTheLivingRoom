@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3wu27p3rgjp1"]
+
+[ext_resource type="Script" uid="uid://bok3gx64dee8s" path="res://other/key.gd" id="1_lxd5w"]
+[ext_resource type="Script" uid="uid://i0qqf878ga1r" path="res://components/interactables/interact controller/interactor.gd" id="1_vpiw2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxd5w"]
+albedo_color = Color(1, 1, 0.101961, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6bgl1"]
+size = Vector3(0.343994, 0.246338, 0.658203)
+
+[node name="Key" type="Node3D" node_paths=PackedStringArray("interactor")]
+script = ExtResource("1_lxd5w")
+interactor = NodePath("InteractionHandler")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0509588, 0)
+size = Vector3(0.211914, 0.09375, 0.558594)
+material = SubResource("StandardMaterial3D_lxd5w")
+
+[node name="InteractionHandler" type="Area3D" parent="." node_paths=PackedStringArray("parent")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0509588, 0)
+script = ExtResource("1_vpiw2")
+parent = NodePath("..")
+delete_on_interact = true
+emit_signal_on_interact = true
+emit_signal_id = 3
+click_to_interact = true
+metadata/_custom_type_script = "uid://i0qqf878ga1r"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionHandler"]
+shape = SubResource("BoxShape3D_6bgl1")
+
+[connection signal="input_event" from="InteractionHandler" to="." method="_on_interaction_handler_input_event"]

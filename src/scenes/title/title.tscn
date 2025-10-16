@@ -1,744 +1,1027 @@
-[gd_scene load_steps=15 format=3 uid="uid://x54rwvpcn2nh"]
+[gd_scene load_steps=70 format=3 uid="uid://x54rwvpcn2nh"]
 
-[ext_resource type="PackedScene" uid="uid://dyseofaasmst3" path="res://assets/models/spooky_level_9_30.glb" id="1_5vtrw"]
-[ext_resource type="Script" uid="uid://bnmrjbfo74r5w" path="res://scenes/title/title_cam.gd" id="1_ds13r"]
-[ext_resource type="Shader" uid="uid://wj765fuh47ji" path="res://shaders/DOF.gdshader" id="2_gl121"]
+[ext_resource type="Texture2D" uid="uid://dcd54f52uwmnq" path="res://materials/textures/other/polysterene_albedo.jpg" id="1_88pml"]
+[ext_resource type="Script" uid="uid://cehpuixeg3sos" path="res://scenes/title/title.gd" id="1_oqbyu"]
+[ext_resource type="PackedScene" uid="uid://dwea4qmi3m471" path="res://ui/settings/settings_ui.tscn" id="2_khe4m"]
+[ext_resource type="Script" uid="uid://bnmrjbfo74r5w" path="res://scenes/title/title_cam.gd" id="3_vqvff"]
 [ext_resource type="Script" uid="uid://c03ekfc2mjl53" path="res://scenes/title/flicker_light.gd" id="4_7hvf5"]
+[ext_resource type="FontFile" uid="uid://cm7ldlxwt3tjr" path="res://assets/font/product_sans_bold.ttf" id="4_wpukp"]
+[ext_resource type="Shader" uid="uid://cfef1hextj8kw" path="res://shaders/horror-esque.gdshader" id="5_p2uin"]
+[ext_resource type="PackedScene" uid="uid://ceolq55038vef" path="res://models/kitchenware/stove_hood.tscn" id="5_xuxxd"]
+[ext_resource type="PackedScene" uid="uid://8fncc8hxalbx" path="res://models/furniture/dining_chair.tscn" id="5_yjwoi"]
+[ext_resource type="PackedScene" uid="uid://c31sjqomesutg" path="res://models/furniture/dining_table.tscn" id="6_g4gru"]
+[ext_resource type="FontFile" uid="uid://jwh6dpkx67db" path="res://assets/font/product_sans_italic.ttf" id="6_tktyh"]
+[ext_resource type="PackedScene" uid="uid://kf26syfod46c" path="res://models/furniture/night_stand.tscn" id="7_7s5iw"]
+[ext_resource type="PackedScene" uid="uid://dfxrbpu1vato6" path="res://models/furniture/living_room_chair.tscn" id="8_k35rw"]
+[ext_resource type="PackedScene" uid="uid://d0ugyk8oeg7kn" path="res://models/furniture/living_room_stand.tscn" id="9_jryob"]
+[ext_resource type="FontFile" uid="uid://cynlwne5wt3h0" path="res://assets/font/product_sans_regular.ttf" id="10_c7ggl"]
+[ext_resource type="PackedScene" uid="uid://dw88j8d0qqr70" path="res://models/furniture/couch.tscn" id="10_dnyg8"]
+[ext_resource type="PackedScene" uid="uid://p0as6i7a38wf" path="res://models/arch/door.tscn" id="11_4yl2o"]
+[ext_resource type="PackedScene" uid="uid://ibxqqvuyitsp" path="res://models/furniture/tv_stand.tscn" id="12_784tc"]
+[ext_resource type="PackedScene" uid="uid://bjhvcx25gjdby" path="res://models/furniture/shelving_unit.tscn" id="12_awdk6"]
+[ext_resource type="PackedScene" uid="uid://36p2lujmym63" path="res://models/furniture/shoe_rack.tscn" id="13_7uqqr"]
+[ext_resource type="PackedScene" uid="uid://cyjirn4y750t8" path="res://models/furniture/holder.tscn" id="15_rtgr4"]
+[ext_resource type="PackedScene" uid="uid://d2ufiauhnl0x3" path="res://models/kitchenware/trash_can.tscn" id="16_agu86"]
+[ext_resource type="PackedScene" uid="uid://bwa6uku2pdivp" path="res://models/arch/light_switch_double.tscn" id="17_bjs8b"]
+[ext_resource type="PackedScene" uid="uid://crdibjprknjik" path="res://models/arch/outlet.tscn" id="18_dawno"]
+[ext_resource type="AudioStream" uid="uid://b4bp0t0sd6h0m" path="res://assets/audio/other/door_opens_01.ogg" id="18_gm158"]
+[ext_resource type="PackedScene" uid="uid://c3cx280f4i76s" path="res://components/discord_link/discord_button.tscn" id="19_aqogk"]
+[ext_resource type="PackedScene" uid="uid://dbb8rqby2r3ep" path="res://models/arch/light_switch_single.tscn" id="19_xraam"]
+[ext_resource type="PackedScene" uid="uid://djlsb6jgh4mmk" path="res://models/props/tv.tscn" id="20_1cwff"]
+[ext_resource type="PackedScene" uid="uid://c5wm8qw10bgex" path="res://models/kitchenware/static_kitchen_drawer_01.tscn" id="21_ucj5f"]
+[ext_resource type="PackedScene" uid="uid://chkh3jeqf6bba" path="res://models/kitchenware/static_kitchen_drawer_02.tscn" id="22_bqdq2"]
+[ext_resource type="PackedScene" uid="uid://nxmvu05v8mqa" path="res://models/kitchenware/kitchen_drawer.tscn" id="23_bqdq2"]
+[ext_resource type="PackedScene" uid="uid://28mwvumjtoet" path="res://models/kitchenware/oven.tscn" id="23_lq4su"]
+[ext_resource type="PackedScene" uid="uid://x7i6nx7ggpp7" path="res://models/kitchenware/kitchen_cabinet.tscn" id="24_wfckv"]
+[ext_resource type="PackedScene" uid="uid://dwish4r23onfd" path="res://models/kitchenware/kitchen_cabinet_doors.tscn" id="25_qp135"]
+[ext_resource type="PackedScene" uid="uid://cpnykgsfjb37v" path="res://models/props/lamp.tscn" id="26_d4ue3"]
+[ext_resource type="PackedScene" uid="uid://cw4cotwrelwdl" path="res://models/kitchenware/kitchen_cabinet_02.tscn" id="26_qb06g"]
+[ext_resource type="PackedScene" uid="uid://xiifqhgvrl4a" path="res://models/arch/base_board.tscn" id="27_054mk"]
+[ext_resource type="Texture2D" uid="uid://bvqwo3hwlu1nv" path="res://materials/textures/other/checkfloor_albedo.jpg" id="28_xhae5"]
+[ext_resource type="PackedScene" uid="uid://cqtch7pg7u3aw" path="res://models/kitchenware/fridge.tscn" id="29_iftfp"]
+[ext_resource type="PackedScene" uid="uid://dnhqu6d8nkoyc" path="res://models/kitchenware/sink.tscn" id="30_frsho"]
+[ext_resource type="PackedScene" uid="uid://dmpp6bjfv8hjr" path="res://models/furniture/bed.tscn" id="33_vcgg2"]
+[ext_resource type="PackedScene" uid="uid://0mqlbvk8fmri" path="res://models/furniture/tv_stand_02.tscn" id="34_054mk"]
+[ext_resource type="PackedScene" uid="uid://cuofu23tqgxrc" path="res://models/furniture/cabinet.tscn" id="34_a7fu6"]
+[ext_resource type="PackedScene" uid="uid://b5ghu5lt83gga" path="res://models/arch/wall_01.tscn" id="36_8oqsj"]
+[ext_resource type="PackedScene" uid="uid://05ox65x35s2t" path="res://models/arch/wall_03.tscn" id="36_qfook"]
+[ext_resource type="PackedScene" uid="uid://bxugbfrs48xgl" path="res://models/arch/wall_02.tscn" id="36_tktbg"]
+[ext_resource type="PackedScene" uid="uid://csw7a7s0sal2r" path="res://models/arch/wall_04.tscn" id="39_c6aop"]
+[ext_resource type="PackedScene" uid="uid://sx02rrkkhpjk" path="res://models/arch/wall_05.tscn" id="40_p3wtu"]
+[ext_resource type="PackedScene" uid="uid://bls3c0wj8dcha" path="res://models/arch/wall_06.tscn" id="41_qteuk"]
+[ext_resource type="PackedScene" uid="uid://ms8w5lovse2y" path="res://models/arch/wall_07.tscn" id="42_h2jgp"]
+[ext_resource type="Texture2D" uid="uid://eman1cgvduk4" path="res://assets/font/btlr_beware_only.png" id="45_p2uin"]
+[ext_resource type="AudioStream" uid="uid://i2syyln3rw0r" path="res://assets/audio/btlr_theme_song.ogg" id="46_p2uin"]
+[ext_resource type="Texture2D" uid="uid://btqys10xrgk1y" path="res://assets/font/btlr_tlr_only.png" id="46_vqvff"]
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7hvf5"]
-dof_blur_near_enabled = true
-dof_blur_amount = 0.22
+[sub_resource type="Environment" id="Environment_7hvf5"]
+background_mode = 1
+tonemap_mode = 4
+glow_enabled = true
+glow_bloom = 0.1
+fog_enabled = true
+fog_light_energy = 0.2
+adjustment_enabled = true
+adjustment_brightness = 1.25
+adjustment_contrast = 1.05
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjwoi"]
-render_priority = 0
-shader = ExtResource("2_gl121")
-shader_parameter/focus_distance = 71.575
-shader_parameter/focus_range = 1.495
-shader_parameter/max_blur_uv = 0.038
-shader_parameter/depth_power = -0.826
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds13r"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_g4gru"]
-material = SubResource("ShaderMaterial_yjwoi")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tktyh"]
+bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hvf5"]
-albedo_color = Color(0, 0.596078, 1, 1)
-roughness = 0.0
-emission_enabled = true
-emission = Color(0, 0.342274, 0.749654, 1)
-emission_energy_multiplier = 4.05
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vqvff"]
+shader = ExtResource("5_p2uin")
+shader_parameter/aberration_strength = 2.56
+shader_parameter/blur_strength = 1.56
+shader_parameter/noise_strength = 0.025
+shader_parameter/vignette_strength = 0.56
+shader_parameter/scanline_strength = 0.009
+shader_parameter/distortion_strength = 0.05
+shader_parameter/ghost_strength = 0.09
+shader_parameter/flicker_strength = 0.003
+
+[sub_resource type="Animation" id="Animation_p2uin"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleUI/Top/Bottom:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TitleUI/Top:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TitleUI/Top/Bottom:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TitleUI/PATC2:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TitleUI/UIButtons/play:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TitleUI/UIButtons/settings:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TitleUI/UIButtons/quit:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TitleUI/Fade:mouse_filter")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TitleUI/Fade:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vqvff"]
+resource_name = "display"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleUI/Top/Bottom:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TitleUI/Top:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TitleUI/PATC2:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TitleUI/UIButtons/play:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.233333, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TitleUI/UIButtons/settings:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TitleUI/UIButtons/quit:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.366667, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tktyh"]
+resource_name = "play"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleUI/Fade:mouse_filter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.00798114),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TitleUI/Fade:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yjwoi"]
+resource_name = "title"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleUI/Top/Bottom:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.73, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TitleUI/Top:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TitleUI/PATC2:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.14, 2.54),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g4gru"]
+_data = {
+&"RESET": SubResource("Animation_p2uin"),
+&"display": SubResource("Animation_vqvff"),
+&"play": SubResource("Animation_tktyh"),
+&"title": SubResource("Animation_yjwoi")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqbyu"]
+albedo_texture = ExtResource("1_88pml")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7hvf5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjwoi"]
 albedo_color = Color(0.099986, 0.099986, 0.099986, 1)
+albedo_texture = ExtResource("28_xhae5")
 
-[sub_resource type="Environment" id="Environment_7hvf5"]
-background_mode = 1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpukp"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds13r"]
-
-[sub_resource type="Animation" id="Animation_yjwoi"]
-resource_name = "title"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g4gru"]
-_data = {
-&"title": SubResource("Animation_yjwoi")
+[sub_resource type="Animation" id="Animation_khe4m"]
+resource_name = "ExitGame"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera & Lights/Camera3D_02:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.98, 1.63, 2.26, 2.8, 3.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(8.86274, 2.34403, -12.7232), Vector3(7.648, 2.579, -10.833), Vector3(1.538, 2.984, -1.273), Vector3(-5.817, 2.984, 8.312), Vector3(-4.672, 2.984, 21.727), Vector3(-4.39, 2.984, 26.057), Vector3(6.122, 2.984, 27.126)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera & Lights/Camera3D_02:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.98, 1.63, 2.26, 2.8, 3.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.62734e-07, 2.74996, 0.174533), Vector3(0, 2.67384, 0), Vector3(0, 2.67384, -0.16057), Vector3(0, 3.05433, 0.263545), Vector3(-0.13439, 3.49939, 0.263545), Vector3(-0.0610865, 4.53087, 0.345575), Vector3(-0.0593412, 4.70715, 0.10821)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Main Scene/archviz/door/door_05:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.55, 3.01),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.00806352, 0), Vector3(0, 0.00806352, 0), Vector3(0, 1.29154, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Main Scene/CSGBox3D:material:emission")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.56667, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Main Scene/CSGBox3D:material:emission_energy_multiplier")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.21, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [16.0, 16.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera & Lights/Camera3D_03:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.41, 0.98, 1.6, 2.16667, 2.7, 3.23),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-9.734, 4.955, -12.933), Vector3(-8.019, 3.355, -9.258), Vector3(-6.584, 2.8, -3.938), Vector3(-5.779, 2.8, 14.527), Vector3(-4.384, 2.8, 23.81), Vector3(-3.749, 2.8, 25.895), Vector3(5.956, 2.8, 27.08)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera & Lights/Camera3D_03:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.41, 0.98, 1.6, 2.16667, 2.7, 3.23),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.404916, -2.53771, 0), Vector3(-0.296706, -2.93913, 0.00174533), Vector3(-0.118682, -3.11367, 0.0767945), Vector3(-0.228638, -3.22188, -0.106465), Vector3(-0.0767945, -2.79427, 0.528835), Vector3(-0.129154, -1.88146, 0.171042), Vector3(0, -1.54462, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Camera & Lights/Camera3D_04:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.966667, 1.75, 2.66, 3.16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.404916, -0.771278, 3.17568e-08), Vector3(-0.0715585, -1.24442, 0), Vector3(-0.151844, -3.12239, -0.216421), Vector3(-0.157908, -3.2032, 0.175241), Vector3(-0.0645772, -1.80118, 0.485202), Vector3(0, -1.5708, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera & Lights/Camera3D_04:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.966667, 1.75, 2.66, 3.16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-9.51882, 4.955, 13.0053), Vector3(-8.824, 2.75, 10.11), Vector3(-5.929, 2.75, 12.185), Vector3(-6.151, 2.75, 18.239), Vector3(-4.789, 2.75, 25.415), Vector3(5.981, 2.75, 27.215)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Camera & Lights/Camera3D_05:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.61, 1.56667, 1.99667, 2.78, 3.27),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(8.26323, 5.40828, 14.761), Vector3(6.958, 3.378, 16.026), Vector3(0.938, 2.809, 16.705), Vector3(-3.767, 2.809, 16.496), Vector3(-5.162, 2.319, 24.436), Vector3(6.075, 2.319, 26.871)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Camera & Lights/Camera3D_05:rotation")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.61, 1.56667, 1.99667, 2.78, 3.27),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.404917, 2.34921, 0.174533), Vector3(-0.101229, 1.7942, -0.122173), Vector3(-0.0575959, 1.52716, -0.0610865), Vector3(-0.10472, 2.57611, 0.394444), Vector3(-0.10472, 4.30573, 0.242601), Vector3(0, 4.68621, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Main Scene/archviz/door/door_03:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.36667, 1.73333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.00806352, 0), Vector3(0, 0.00806352, 0), Vector3(0, -1.14494, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Main Scene/archviz/door/door_05/AudioStreamPlayer3D2:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(2.33333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
-[node name="Title" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.778911, 0, -0.627134, 0, 1, 0, 0.627134, 0, 0.778911, -8.93849, 2.47903, 8.78924)
-attributes = SubResource("CameraAttributesPractical_7hvf5")
-script = ExtResource("1_ds13r")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0610561, 0, -0.273189)
-mesh = SubResource("QuadMesh_g4gru")
-
-[node name="spooky_level_9_30" parent="." instance=ExtResource("1_5vtrw")]
-
-[node name="Cylinder_003" parent="spooky_level_9_30" index="0"]
-transform = Transform3D(0, 0.546498, 0, 0, 0, -0.913386, -2.01815, 0, 0, 80.7732, -36.1645, -7.03278)
-
-[node name="Cube_006" parent="spooky_level_9_30" index="1"]
-transform = Transform3D(0, -0.278171, 0, -2.8213, 0, 0, 0, 0, 13.132, 94.1379, -36.9445, 0.0364552)
-
-[node name="Cube_013" parent="spooky_level_9_30" index="2"]
-transform = Transform3D(0, -0.241874, 0, 0, 0, -1.7886, -3.28318, 0, 0, 88.6632, -33.2642, 18.9239)
-
-[node name="Cube_014" parent="spooky_level_9_30" index="3"]
-transform = Transform3D(0, -0.241874, 0, 0, 0, -2.89292, -19.1512, 0, 0, 78.5183, -32.6133, 32.6748)
-
-[node name="Cube_016" parent="spooky_level_9_30" index="4"]
-transform = Transform3D(-0.780978, 5.62099e-08, -9.23264e-08, -3.41377e-08, 0, 2.11218, 3.41377e-08, 1.28593, 4.03572e-15, 98.9669, -37.6444, 14.3722)
-
-[node name="Cube_017" parent="spooky_level_9_30" index="5"]
-transform = Transform3D(0.780978, 0, 0, 0, 0, 2.11218, 0, -1.28593, 0, 111.211, -37.6444, 20.3856)
-
-[node name="Cube_015" parent="spooky_level_9_30" index="6"]
-transform = Transform3D(0.780978, 0, 0, 0, 0, 1.4865, 0, -1.37607, 0, 72.1884, -36.9785, -36.328)
-
-[node name="Cube_019" parent="spooky_level_9_30" index="7"]
-transform = Transform3D(0.780978, 0, 0, 0, 0, 2.11218, 0, -1.28593, 0, 107.502, -37.6444, 9.20428)
-
-[node name="Cylinder_001" parent="spooky_level_9_30" index="8"]
-transform = Transform3D(0.0106145, 0, 0, 0, 0.0106145, 0, 0, 0, 0.0106145, 77.658, -38.7552, 2.24058)
-
-[node name="Cube_007" parent="spooky_level_9_30" index="9"]
-transform = Transform3D(0.603489, 0, 0, 0, 0.458946, 0, 0, 0, 0.899226, 73.0341, -38.318, -0.0134821)
-
-[node name="Cube_024" parent="spooky_level_9_30" index="10"]
-transform = Transform3D(0.888434, 0, 0, 0, 0.547808, 0, 0, 0, 0.563082, 75.1296, -39.0745, 5.01195)
-
-[node name="Cube_027" parent="spooky_level_9_30" index="11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.0626, -39.4077, -0.699654)
-
-[node name="Cube_028" parent="spooky_level_9_30" index="12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.9953, -35.8822, 9.36919)
-
-[node name="Cube_029" parent="spooky_level_9_30" index="13"]
-transform = Transform3D(-1, 0, -7.11517e-08, 0, 1, 0, 8.74228e-08, 0, -0.813881, 87.5761, -35.8822, -0.469324)
-
-[node name="Cube_030" parent="spooky_level_9_30" index="14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.0027, -38.708, -3.26833)
-
-[node name="Cube_031" parent="spooky_level_9_30" index="15"]
-transform = Transform3D(-1, 0, 9.92982e-08, 0, 0.626233, 0, -8.74228e-08, 0, -1.13584, 91.8461, -39.0853, 0.924905)
-
-[node name="Cube_032" parent="spooky_level_9_30" index="16"]
-transform = Transform3D(-0.0380076, 0, 0, 0, 1, 0, 0, 0, 1.18323, 88.8242, -35.9305, 7.04683)
-
-[node name="Cube_043" parent="spooky_level_9_30" index="17"]
-transform = Transform3D(-0.0236248, 0, 0, 0, 0.196247, 0, 0, 0, 0.735476, 96.6552, -38.6305, 3.72192)
-
-[node name="Cube_047" parent="spooky_level_9_30" index="18"]
-transform = Transform3D(-0.0380076, 0, 0, 0, 1, 0, 0, 0, 1.18323, 86.0596, -35.9305, 3.21438)
-
-[node name="Cube_048" parent="spooky_level_9_30" index="19"]
-transform = Transform3D(-0.0287329, 0, 0, 0, 0.755977, 0, 0, 0, 0.894498, 94.2622, -38.8359, 1.7026)
-
-[node name="Cube_049" parent="spooky_level_9_30" index="20"]
-transform = Transform3D(-0.0287329, 0, 0, 0, 0, -0.894498, 0, 0.755977, 0, 96.7102, -39.685, 3.91262)
-
-[node name="Cube_050" parent="spooky_level_9_30" index="21"]
-transform = Transform3D(-0.0287329, 0, 0, 0, 0, -0.894498, 0, 0.755977, 0, 96.7102, -40.0872, 3.91262)
-
-[node name="Cube_051" parent="spooky_level_9_30" index="22"]
-transform = Transform3D(-0.0287329, 0, 0, 0, 0, -0.894498, 0, 0.755977, 0, 94.3081, -39.3052, -3.31557)
-
-[node name="Cube_052" parent="spooky_level_9_30" index="23"]
-transform = Transform3D(-0.0287329, 0, 0, 0, 0, -0.894498, 0, 0.755977, 0, 94.3081, -39.685, -3.31557)
-
-[node name="Cube_053" parent="spooky_level_9_30" index="24"]
-transform = Transform3D(-0.0287329, 0, 0, 0, 0, -0.894498, 0, 0.755977, 0, 94.3081, -40.0872, -3.31557)
-
-[node name="Cube_054" parent="spooky_level_9_30" index="25"]
-transform = Transform3D(-0.0287329, 0, 0, 0, 0.755977, 0, 0, 0, 0.894498, 94.2622, -38.8359, 0.312871)
-
-[node name="Cube_055" parent="spooky_level_9_30" index="26"]
-transform = Transform3D(-0.0287329, 0, 0, 0, 0.755977, 0, 0, 0, 0.894498, 94.2622, -38.8359, -0.106044)
-
-[node name="Cube_056" parent="spooky_level_9_30" index="27"]
-transform = Transform3D(-0.0287329, 0, 0, 0, 0.755977, 0, 0, 0, 0.894498, 94.2622, -38.8359, -1.46959)
-
-[node name="Cube_057" parent="spooky_level_9_30" index="28"]
-transform = Transform3D(0.0957327, 0, 0, 0, 0.0281011, 0, 0, 0, 0.0957327, 96.8275, -39.2651, 4.37303)
-
-[node name="Cube_058" parent="spooky_level_9_30" index="29"]
-transform = Transform3D(0.0957327, 0, 0, 0, 0.0281011, 0, 0, 0, 0.0957327, 96.8275, -38.8647, 4.37303)
-
-[node name="Cube_070" parent="spooky_level_9_30" index="30"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.5444, -39.3084, -11.8075)
-
-[node name="Plane_003" parent="spooky_level_9_30" index="31"]
-transform = Transform3D(0.154588, 0, 0, 0, 0, -0.117925, 0, 3.32137, 0, 100.835, -39.5931, 43.3508)
-
-[node name="Plane_007" parent="spooky_level_9_30" index="32"]
-transform = Transform3D(0.154588, 0, 0, 0, 0, -0.117925, 0, 3.32137, 0, 101.798, -39.5009, 43.4378)
-
-[node name="Plane_013" parent="spooky_level_9_30" index="33"]
-transform = Transform3D(0.154588, 0, 0, 0, 0, -0.117925, 0, 3.32137, 0, 106.383, -39.4052, 44.9513)
-
-[node name="Cube_073" parent="spooky_level_9_30" index="36"]
-transform = Transform3D(0.915599, 0, 0, 0, 0.636917, 0, 0, 0, 0.432078, 92.6734, -38.005, -27.797)
-
-[node name="Cube_074" parent="spooky_level_9_30" index="37"]
-transform = Transform3D(0.627302, 0, 0, 0, 0.636917, 0, 0, 0, 0.631597, 92.6734, -38.005, -26.5998)
-
-[node name="Cube_088" parent="spooky_level_9_30" index="38"]
-transform = Transform3D(0.618647, 0, 0, 0, 1.54526, 0, 0, 0, 0.0341614, 77.5721, -38.1893, -12.9241)
-
-[node name="Cube_082" parent="spooky_level_9_30" index="41"]
-transform = Transform3D(0.921171, 0, 0, 0, 0.803295, 0, 0, 0, 0.608704, 69.1383, -40.2779, -0.688)
-
-[node name="Cube_086" parent="spooky_level_9_30" index="42"]
-transform = Transform3D(0, 0, 0.901659, 0, 0.450129, 0, -0.659552, 0, 0, 120.67, -38.9163, 3.59781)
-
-[node name="SurfCylinder" parent="spooky_level_9_30" index="44"]
-transform = Transform3D(1, 0, 0, 0, 0.0909078, 0, 0, 0, 1, -68.2763, -71.4224, -22.6436)
-
-[node name="SurfCylinder_001" parent="spooky_level_9_30" index="45"]
-transform = Transform3D(0.72479, 0, 0.300218, 0, 0.0713178, 0, -0.300218, 0, 0.72479, -68.2763, -71.2172, -22.6436)
-
-[node name="SurfCylinder_002" parent="spooky_level_9_30" index="46"]
-transform = Transform3D(0.419844, 0, 0.419844, 0, 0.0687214, 0, -0.419844, 0, 0.419844, -68.2763, -71.0628, -22.6436)
-
-[node name="SurfCylinder_003" parent="spooky_level_9_30" index="47"]
-transform = Transform3D(0.413549, 0, 0.171298, 0, 0.0662487, 0, -0.171298, 0, 0.413549, -68.2763, -70.9272, -22.6436)
-
-[node name="SurfCylinder_004" parent="spooky_level_9_30" index="48"]
-transform = Transform3D(0.224257, 0, 0.224257, 0, 0.0469381, 0, -0.224257, 0, 0.224257, -68.2763, -70.8078, -22.6436)
-
-[node name="Cube_089" parent="spooky_level_9_30" index="49"]
-transform = Transform3D(1, 0, 0, 0, 1.48514, 0, 0, 0, 1, -53.2648, -72.3068, -29.85)
-
-[node name="Cylinder" parent="spooky_level_9_30" index="50"]
-transform = Transform3D(1.18824, 0, 0, 0, 1.7647, 0, 0, 0, 1.18824, -57.9666, -72.2057, -31.4835)
-
-[node name="Cylinder_006" parent="spooky_level_9_30" index="51"]
-transform = Transform3D(0.133097, 0, 0, 0, 0, 0.133097, 0, -0.197668, 0, -68.549, -70.9369, -19.4023)
-
-[node name="Cylinder_008" parent="spooky_level_9_30" index="52"]
-transform = Transform3D(1.18824, 0, 0, 0, 9.01627, 0, 0, 0, 1.18824, -67.6969, -83.4629, -37.256)
-
-[node name="Cylinder_009" parent="spooky_level_9_30" index="53"]
-transform = Transform3D(1.03958, 0, 0, 0, 0, -1.03958, 0, 7.88826, 0, -63.5587, -75.2071, -49.5942)
-
-[node name="Cylinder_010" parent="spooky_level_9_30" index="54"]
-transform = Transform3D(0.148238, 0, 0, 0, 0, 0.148238, 0, -0.220155, 0, -68.5496, -70.8821, -19.3872)
-
-[node name="Cylinder_011" parent="spooky_level_9_30" index="55"]
-transform = Transform3D(1.22132, 0, 0, 0, 1.83458, 0, 0, 0, 1.22132, -81.4672, -73.0681, -29.7416)
-
-[node name="Cube_092" parent="spooky_level_9_30" index="57"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.3331, -17.2732)
-
-[node name="Cube_093" parent="spooky_level_9_30" index="58"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.056, -17.2681)
-
-[node name="Cube_094" parent="spooky_level_9_30" index="59"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.7716, -17.2667)
-
-[node name="Cube_095" parent="spooky_level_9_30" index="60"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.4909, -17.2689)
-
-[node name="Cube_096" parent="spooky_level_9_30" index="61"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.2102, -17.2602)
-
-[node name="Cube_097" parent="spooky_level_9_30" index="62"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.2102, -16.9751)
-
-[node name="Cube_098" parent="spooky_level_9_30" index="63"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.4909, -16.9838)
-
-[node name="Cube_099" parent="spooky_level_9_30" index="64"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.7716, -16.9816)
-
-[node name="Cube_100" parent="spooky_level_9_30" index="65"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.056, -16.983)
-
-[node name="Cube_101" parent="spooky_level_9_30" index="66"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.3331, -16.9881)
-
-[node name="Cube_102" parent="spooky_level_9_30" index="67"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.3293, -16.703)
-
-[node name="Cube_103" parent="spooky_level_9_30" index="68"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.0522, -16.6979)
-
-[node name="Cube_104" parent="spooky_level_9_30" index="69"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.7678, -16.6965)
-
-[node name="Cube_105" parent="spooky_level_9_30" index="70"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.4871, -16.6988)
-
-[node name="Cube_106" parent="spooky_level_9_30" index="71"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.2064, -16.69)
-
-[node name="Cube_107" parent="spooky_level_9_30" index="72"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.2064, -16.405)
-
-[node name="Cube_108" parent="spooky_level_9_30" index="73"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.4871, -16.4137)
-
-[node name="Cube_109" parent="spooky_level_9_30" index="74"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.7678, -16.4115)
-
-[node name="Cube_110" parent="spooky_level_9_30" index="75"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.0522, -16.4129)
-
-[node name="Cube_111" parent="spooky_level_9_30" index="76"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.3293, -16.4179)
-
-[node name="Cube_112" parent="spooky_level_9_30" index="77"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.3331, -16.1367)
-
-[node name="Cube_113" parent="spooky_level_9_30" index="78"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -72.056, -16.1316)
-
-[node name="Cube_114" parent="spooky_level_9_30" index="79"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.7716, -16.1302)
-
-[node name="Cube_115" parent="spooky_level_9_30" index="80"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.4909, -16.1324)
-
-[node name="Cube_116" parent="spooky_level_9_30" index="81"]
-transform = Transform3D(0, 0.49762, 0, -0.853421, 0, 0, 0, 0, 0.853421, -68.1024, -71.2102, -16.1237)
-
-[node name="Cube_117" parent="spooky_level_9_30" index="82"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.3331, -17.2732)
-
-[node name="Cube_118" parent="spooky_level_9_30" index="83"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.056, -17.2681)
-
-[node name="Cube_119" parent="spooky_level_9_30" index="84"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.7716, -17.2667)
-
-[node name="Cube_120" parent="spooky_level_9_30" index="85"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.4909, -17.2689)
-
-[node name="Cube_121" parent="spooky_level_9_30" index="86"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.2102, -17.2602)
-
-[node name="Cube_122" parent="spooky_level_9_30" index="87"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.2102, -16.9751)
-
-[node name="Cube_123" parent="spooky_level_9_30" index="88"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.4909, -16.9838)
-
-[node name="Cube_124" parent="spooky_level_9_30" index="89"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.7716, -16.9816)
-
-[node name="Cube_125" parent="spooky_level_9_30" index="90"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.056, -16.983)
-
-[node name="Cube_126" parent="spooky_level_9_30" index="91"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.3331, -16.9881)
-
-[node name="Cube_127" parent="spooky_level_9_30" index="92"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.3293, -16.703)
-
-[node name="Cube_128" parent="spooky_level_9_30" index="93"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.0522, -16.6979)
-
-[node name="Cube_129" parent="spooky_level_9_30" index="94"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.7678, -16.6965)
-
-[node name="Cube_130" parent="spooky_level_9_30" index="95"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.4871, -16.6988)
-
-[node name="Cube_131" parent="spooky_level_9_30" index="96"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.2064, -16.69)
-
-[node name="Cube_132" parent="spooky_level_9_30" index="97"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.2064, -16.405)
-
-[node name="Cube_133" parent="spooky_level_9_30" index="98"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.4871, -16.4137)
-
-[node name="Cube_134" parent="spooky_level_9_30" index="99"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.7678, -16.4115)
-
-[node name="Cube_135" parent="spooky_level_9_30" index="100"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.0522, -16.4129)
-
-[node name="Cube_136" parent="spooky_level_9_30" index="101"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.3293, -16.4179)
-
-[node name="Cube_137" parent="spooky_level_9_30" index="102"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.3331, -16.1367)
-
-[node name="Cube_138" parent="spooky_level_9_30" index="103"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -72.056, -16.1316)
-
-[node name="Cube_139" parent="spooky_level_9_30" index="104"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.7716, -16.1302)
-
-[node name="Cube_140" parent="spooky_level_9_30" index="105"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.4909, -16.1324)
-
-[node name="Cube_141" parent="spooky_level_9_30" index="106"]
-transform = Transform3D(0, 0.395718, 0, -0.678658, 0, 0, 0, 0, 0.678658, -68.1593, -71.2102, -16.1237)
-
-[node name="Cube_142" parent="spooky_level_9_30" index="107"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.6448, -72.2849, -26.9157)
-
-[node name="Cube_143" parent="spooky_level_9_30" index="108"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.0767, -71.8154, -27.4847)
-
-[node name="Cube_144" parent="spooky_level_9_30" index="109"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.3538, -71.8154, -27.4796)
-
-[node name="Cube_145" parent="spooky_level_9_30" index="110"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.6382, -71.8154, -27.4783)
-
-[node name="Cube_146" parent="spooky_level_9_30" index="111"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.9189, -71.8154, -27.4805)
-
-[node name="Cube_147" parent="spooky_level_9_30" index="112"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -73.1997, -71.8154, -27.4718)
-
-[node name="Cube_148" parent="spooky_level_9_30" index="113"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -73.1997, -71.8154, -27.1867)
-
-[node name="Cube_149" parent="spooky_level_9_30" index="114"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.9189, -71.8154, -27.1954)
-
-[node name="Cube_150" parent="spooky_level_9_30" index="115"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.6382, -71.8154, -27.1932)
-
-[node name="Cube_151" parent="spooky_level_9_30" index="116"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.3538, -71.8154, -27.1946)
-
-[node name="Cube_152" parent="spooky_level_9_30" index="117"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.0767, -71.8154, -27.1997)
-
-[node name="Cube_153" parent="spooky_level_9_30" index="118"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.0805, -71.8154, -26.9146)
-
-[node name="Cube_154" parent="spooky_level_9_30" index="119"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.3576, -71.8154, -26.9095)
-
-[node name="Cube_155" parent="spooky_level_9_30" index="120"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.642, -71.8154, -26.9081)
-
-[node name="Cube_156" parent="spooky_level_9_30" index="121"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.9227, -71.8154, -26.9103)
-
-[node name="Cube_157" parent="spooky_level_9_30" index="122"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -73.2035, -71.8154, -26.9016)
-
-[node name="Cube_158" parent="spooky_level_9_30" index="123"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -73.2035, -71.8154, -26.6166)
-
-[node name="Cube_159" parent="spooky_level_9_30" index="124"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.9227, -71.8154, -26.6253)
-
-[node name="Cube_160" parent="spooky_level_9_30" index="125"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.642, -71.8154, -26.6231)
-
-[node name="Cube_161" parent="spooky_level_9_30" index="126"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.3576, -71.8154, -26.6244)
-
-[node name="Cube_162" parent="spooky_level_9_30" index="127"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.0805, -71.8154, -26.6295)
-
-[node name="Cube_163" parent="spooky_level_9_30" index="128"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.0767, -71.8154, -26.3483)
-
-[node name="Cube_164" parent="spooky_level_9_30" index="129"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.3538, -71.8154, -26.3432)
-
-[node name="Cube_165" parent="spooky_level_9_30" index="130"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.6382, -71.8154, -26.3418)
-
-[node name="Cube_166" parent="spooky_level_9_30" index="131"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -72.9189, -71.8154, -26.344)
-
-[node name="Cube_167" parent="spooky_level_9_30" index="132"]
-transform = Transform3D(0.853421, 0, 0, 0, 0.49762, 0, 0, 0, 0.853421, -73.1997, -71.8154, -26.3353)
-
-[node name="Cube_168" parent="spooky_level_9_30" index="133"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.0767, -71.8723, -27.4847)
-
-[node name="Cube_169" parent="spooky_level_9_30" index="134"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.3538, -71.8723, -27.4796)
-
-[node name="Cube_170" parent="spooky_level_9_30" index="135"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.6382, -71.8723, -27.4783)
-
-[node name="Cube_171" parent="spooky_level_9_30" index="136"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.9189, -71.8723, -27.4805)
-
-[node name="Cube_172" parent="spooky_level_9_30" index="137"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -73.1997, -71.8723, -27.4718)
-
-[node name="Cube_173" parent="spooky_level_9_30" index="138"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -73.1997, -71.8723, -27.1867)
-
-[node name="Cube_174" parent="spooky_level_9_30" index="139"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.9189, -71.8723, -27.1954)
-
-[node name="Cube_175" parent="spooky_level_9_30" index="140"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.6382, -71.8723, -27.1932)
-
-[node name="Cube_176" parent="spooky_level_9_30" index="141"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.3538, -71.8723, -27.1946)
-
-[node name="Cube_177" parent="spooky_level_9_30" index="142"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.0767, -71.8723, -27.1997)
-
-[node name="Cube_178" parent="spooky_level_9_30" index="143"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.0805, -71.8723, -26.9146)
-
-[node name="Cube_179" parent="spooky_level_9_30" index="144"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.3576, -71.8723, -26.9095)
-
-[node name="Cube_180" parent="spooky_level_9_30" index="145"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.642, -71.8723, -26.9081)
-
-[node name="Cube_181" parent="spooky_level_9_30" index="146"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.9227, -71.8723, -26.9103)
-
-[node name="Cube_182" parent="spooky_level_9_30" index="147"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -73.2035, -71.8723, -26.9016)
-
-[node name="Cube_183" parent="spooky_level_9_30" index="148"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -73.2035, -71.8723, -26.6166)
-
-[node name="Cube_184" parent="spooky_level_9_30" index="149"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.9227, -71.8723, -26.6253)
-
-[node name="Cube_185" parent="spooky_level_9_30" index="150"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.642, -71.8723, -26.6231)
-
-[node name="Cube_186" parent="spooky_level_9_30" index="151"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.3576, -71.8723, -26.6244)
-
-[node name="Cube_187" parent="spooky_level_9_30" index="152"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.0805, -71.8723, -26.6295)
-
-[node name="Cube_188" parent="spooky_level_9_30" index="153"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.0767, -71.8723, -26.3483)
-
-[node name="Cube_189" parent="spooky_level_9_30" index="154"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.3538, -71.8723, -26.3432)
-
-[node name="Cube_190" parent="spooky_level_9_30" index="155"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.6382, -71.8723, -26.3418)
-
-[node name="Cube_191" parent="spooky_level_9_30" index="156"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -72.9189, -71.8723, -26.344)
-
-[node name="Cube_192" parent="spooky_level_9_30" index="157"]
-transform = Transform3D(0.678658, 0, 0, 0, 0.395718, 0, 0, 0, 0.678658, -73.1997, -71.8723, -26.3353)
-
-[node name="Cylinder_013" parent="spooky_level_9_30" index="158"]
-transform = Transform3D(0.0341169, -0.00742039, 0.0239288, 0.00776444, -0.0353058, -0.0220187, 0.0238194, 0.022137, -0.0270961, -67.3979, -70.8932, -16.9401)
-
-[node name="Cylinder_012" parent="spooky_level_9_30" index="159"]
-transform = Transform3D(1.02834, 0, 0, 0, 1.67988, 0, 0, 0, 1.02834, -52.6355, -72.3068, -31.4835)
-
-[node name="Cylinder_014" parent="spooky_level_9_30" index="160"]
-transform = Transform3D(0.0825317, 0.0192576, -0.0225215, -0.0159465, 0.125462, -0.00979863, 0.0205199, 0.0200448, 0.0829675, -67.591, -70.6596, -15.8916)
-
-[node name="Cylinder_015" parent="spooky_level_9_30" index="161"]
-transform = Transform3D(-0.0410959, 0.00146065, 0.076138, -0.00257608, 0.128393, -0.00250719, -0.0761008, -0.005135, -0.0410312, -67.6052, -70.6503, -16.7077)
-
-[node name="Cylinder_016" parent="spooky_level_9_30" index="162"]
-transform = Transform3D(-0.0303387, 0.040812, 0.0762315, 0.0231733, 0.12021, -0.0199557, -0.0776492, 0.0199292, -0.0357403, -67.568, -70.7006, -17.3616)
-
-[node name="Torus" parent="spooky_level_9_30" index="171"]
-transform = Transform3D(1.58683, 0, 0, 0, 2.86947, 0, 0, 0, 1.58683, -57.9566, -73.7096, -31.4502)
-
-[node name="Torus_001" parent="spooky_level_9_30" index="172"]
-transform = Transform3D(0.110217, 0.0313134, -0.0300763, -0.0212957, 0.204005, -0.0130856, 0.0274033, 0.0325934, 0.110799, -67.6073, -70.7669, -15.9062)
-
-[node name="Torus_002" parent="spooky_level_9_30" index="173"]
-transform = Transform3D(-0.0548816, 0.00237506, 0.101679, -0.00344022, 0.208772, -0.00334822, -0.101629, -0.00834968, -0.0547951, -67.6047, -70.7598, -16.7051)
-
-[node name="Torus_003" parent="spooky_level_9_30" index="174"]
-transform = Transform3D(-0.0405158, 0.0663616, 0.101803, 0.0309467, 0.195466, -0.0266498, -0.103697, 0.0324055, -0.0477293, -67.6009, -70.8034, -17.3802)
-
-[node name="Cube_090" parent="spooky_level_9_30" index="175"]
-transform = Transform3D(1, 0, 0, 0, 0.21616, 0, 0, 0, 1, -68.1127, -72.2849, -13.6325)
-
-[node name="Cube_194" parent="spooky_level_9_30" index="177"]
-transform = Transform3D(2.17234, 0, 0, 0, 0.799277, 0, 0, 0, 2.66545, 75.8895, -40.0884, 15.3714)
-
-[node name="Cube_195" parent="spooky_level_9_30" index="178"]
-transform = Transform3D(2.87921, 0, 0, 0, 0.799277, 0, 0, 0, 1.39589, 124.918, -40.0884, -0.258544)
-
-[node name="Cube_207" parent="spooky_level_9_30" index="188"]
-transform = Transform3D(0, 0, 1.30508, 0, 0.715736, 0, -1.12183, 0, 0, 100.724, -40.0794, 26.8648)
-
-[node name="Cube_208" parent="spooky_level_9_30" index="189"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 88.6884, -38.9469, 20.5327)
-
-[node name="Cube_210" parent="spooky_level_9_30" index="190"]
-transform = Transform3D(0.939852, 0, 0, 0, 0.939852, 0, 0, 0, 0.469926, 91.656, -38.8882, 20.5327)
-
-[node name="Cube_211" parent="spooky_level_9_30" index="192"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 97.9027, -38.9469, 20.5329)
-
-[node name="Cube_224" parent="spooky_level_9_30" index="198"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.3364, -38.6205, 22.3034)
-
-[node name="Cube_228" parent="spooky_level_9_30" index="199"]
-transform = Transform3D(0.507798, 0, 0, 0, 0.346004, 0, 0, 0, 0.535166, 99.14, -37.9821, 27.4523)
-
-[node name="Cube_229" parent="spooky_level_9_30" index="200"]
-transform = Transform3D(0.507798, 0, 0, 0, 0.346004, 0, 0, 0, 0.535166, 98.1304, -37.9821, 27.4523)
-
-[node name="Cube_230" parent="spooky_level_9_30" index="201"]
-transform = Transform3D(0.507798, 0, 0, 0, 0.346004, 0, 0, 0, 0.535166, 100.15, -37.9821, 27.4523)
-
-[node name="Cube_231" parent="spooky_level_9_30" index="202"]
-transform = Transform3D(0.755149, 0, 0, 0, 0.328922, 0, 0, 0, 0.535166, 99.9098, -38.6654, 27.4525)
-
-[node name="Cube_232" parent="spooky_level_9_30" index="203"]
-transform = Transform3D(1.54161, 0, 0, 0, 0.366683, 0, 0, 0, 0.535166, 99.1441, -39.3569, 27.4523)
-
-[node name="Cube_233" parent="spooky_level_9_30" index="204"]
-transform = Transform3D(0.755149, 0, 0, 0, 0.328922, 0, 0, 0, 0.535166, 98.3826, -38.6654, 27.4525)
-
-[node name="Cylinder_040" parent="spooky_level_9_30" index="214"]
-transform = Transform3D(0.835677, 0, 0, 0, 0.835677, 0, 0, 0, 0.835677, -24.2949, -63.8562, 6.98911)
-
-[node name="Cube" parent="spooky_level_9_30" index="216"]
-visible = false
-
-[node name="Cube_084" parent="spooky_level_9_30" index="238"]
-transform = Transform3D(0.918873, 0, 0, 0, 0.253992, 0, 0, 0, 0.51896, 110.837, -38.8612, -1.2074)
-
-[node name="living_room_tv_screen" parent="spooky_level_9_30" index="282"]
-surface_material_override/0 = SubResource("StandardMaterial3D_7hvf5")
-
-[node name="glass_002" parent="spooky_level_9_30" index="367"]
-visible = false
-
-[node name="glass_003" parent="spooky_level_9_30" index="368"]
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="spooky_level_9_30"]
-transform = Transform3D(31.8942, 0, 0, 0, 31.8942, 0, 0, 0, 31.8942, -20.4604, 0, 0)
-mesh = SubResource("PlaneMesh_7hvf5")
-surface_material_override/0 = SubResource("StandardMaterial3D_yjwoi")
-
-[node name="Enviroment" type="Node3D" parent="."]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
+[sub_resource type="Animation" id="Animation_gm158"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera & Lights/Camera3D_02:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.86274, 2.34403, -12.7232)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera & Lights/Camera3D_02:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.62734e-07, 2.74996, 0.174533)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Main Scene/archviz/door/door_05:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.00806352, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Main Scene/CSGBox3D:material:emission")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Main Scene/CSGBox3D:material:emission_energy_multiplier")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [16.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera & Lights/Camera3D_03:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-9.734, 4.955, -12.933)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera & Lights/Camera3D_03:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.404916, -2.53771, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Camera & Lights/Camera3D_04:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.404916, -0.771278, 3.17568e-08)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera & Lights/Camera3D_04:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-9.51882, 4.955, 13.0053)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Camera & Lights/Camera3D_05:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.26323, 5.40828, 14.761)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Camera & Lights/Camera3D_05:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.404917, 2.34921, 0.174533)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Main Scene/archviz/door/door_03:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.00806352, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Main Scene/archviz/door/door_05/AudioStreamPlayer3D2:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aqogk"]
+_data = {
+&"ExitGame": SubResource("Animation_khe4m"),
+&"RESET": SubResource("Animation_gm158")
+}
+
+[node name="The Living Room" type="Node3D" node_paths=PackedStringArray("play_button", "quit_button", "settings_button", "cameras", "UIAudio")]
+script = ExtResource("1_oqbyu")
+play_button = NodePath("TitleUI/UIButtons/play")
+quit_button = NodePath("TitleUI/UIButtons/quit")
+settings_button = NodePath("TitleUI/UIButtons/settings")
+cameras = [NodePath("Camera & Lights/Camera3D_02"), NodePath("Camera & Lights/Camera3D_03"), NodePath("Camera & Lights/Camera3D_04"), NodePath("Camera & Lights/Camera3D_05")]
+UIAudio = NodePath("UIAudio")
+settings_menu = ExtResource("2_khe4m")
+
+[node name="Camera & Lights" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Camera & Lights"]
 environment = SubResource("Environment_7hvf5")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera & Lights"]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_negative = true
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Enviroment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86139, 6.08676, 0)
-size = Vector3(31.9647, 1, 108.778)
+[node name="spotlights" type="Node3D" parent="Camera & Lights"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Enviroment"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.94352, 6.28413, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera & Lights/spotlights"]
+transform = Transform3D(-0.866025, 0.5, 3.67569e-08, -0.433013, -0.75, 0.5, 0.25, 0.433013, 0.866026, 4.28121, 5.28267, 4.20634)
 spot_range = 11.2158
 spot_angle = 79.5497
+spot_angle_attenuation = 1.10957
 
-[node name="FlickerLight" type="SpotLight3D" parent="Enviroment"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.0335, 2.10297, 4.76837e-07)
+[node name="FlickerLight" type="SpotLight3D" parent="Camera & Lights/spotlights"]
+transform = Transform3D(-0.5, 1.49012e-08, 0.866025, 0.75, 0.5, 0.433013, -0.433013, 0.866026, -0.25, 11.2873, 6.69516, -1.43715)
 light_color = Color(0, 0.54902, 0.776471, 1)
 spot_range = 27.231
 spot_attenuation = 0.6
 spot_angle = 69.06
+spot_angle_attenuation = 1.18921
 script = ExtResource("4_7hvf5")
 min_energy = 1.845
 max_energy = 6.1
 noise_speed = 18.405
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Enviroment"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.78701, 6.11897, -9.67695)
+[node name="FlickerLight2" type="SpotLight3D" parent="Camera & Lights/spotlights"]
+transform = Transform3D(-0.862876, 1.49012e-08, 0.505416, 0.437703, 0.5, 0.747272, -0.252708, 0.866026, -0.431438, -9.3269, 18.97, -7.54871)
+light_color = Color(0, 0.54902, 0.776471, 1)
+spot_range = 27.231
+spot_attenuation = 0.6
+spot_angle = 69.06
+spot_angle_attenuation = 1.18921
+script = ExtResource("4_7hvf5")
+min_energy = 1.845
+max_energy = 6.1
+noise_speed = 18.405
+
+[node name="FlickerLight3" type="SpotLight3D" parent="Camera & Lights/spotlights"]
+transform = Transform3D(-0.862876, 2.54844e-08, 0.505416, 0.437703, 0.5, 0.747272, -0.252708, 0.866026, -0.431438, -3.47355, 27.3321, -12.3766)
+light_color = Color(0, 0.54902, 0.776471, 1)
+light_energy = 1.15
+spot_range = 27.231
+spot_attenuation = 0.6
+spot_angle = 69.06
+spot_angle_attenuation = 1.18921
+
+[node name="dinner_spot" type="SpotLight3D" parent="Camera & Lights/spotlights"]
+transform = Transform3D(-0.866025, 0.5, 3.67569e-08, -0.433013, -0.75, 0.5, 0.25, 0.433013, 0.866026, -1.03924, -7.13709, 11.1862)
 light_energy = 10.931
 light_bake_mode = 1
 shadow_enabled = true
 spot_range = 19.51
 spot_angle = 80.61
+spot_angle_attenuation = 1.51572
 
-[node name="SpotLight3D3" type="OmniLight3D" parent="Enviroment"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 13.4043, 4.76099, -3.18137)
+[node name="SpotLight3D2" type="SpotLight3D" parent="Camera & Lights/spotlights"]
+transform = Transform3D(0.983191, -0.112535, -0.143778, -0.102162, 0.313583, -0.944049, 0.151325, 0.942869, 0.296815, -10.8149, -0.732855, 0.423114)
+light_color = Color(0.90672, 0.793455, 0.519834, 1)
+spot_range = 11.0932
+spot_angle_attenuation = 5.27803
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Camera & Lights/spotlights"]
+transform = Transform3D(-0.178798, -0.0324735, -0.98335, -0.726726, 0.678105, 0.109744, 0.66325, 0.734248, -0.144843, -5.57272, 10.7512, -4.76115)
+light_color = Color(1, 0.81307, 0.692798, 1)
+light_energy = 4.918
+spot_range = 11.0932
+spot_attenuation = 1.68
+spot_angle_attenuation = 5.27803
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Camera & Lights/spotlights"]
+transform = Transform3D(-0.112061, 0.114402, -0.987094, -0.681422, 0.714159, 0.160129, 0.723261, 0.690571, -0.00207344, 2.89537, -2.7644, 4.33626)
+visible = false
+light_color = Color(0.90672, 0.793455, 0.519834, 1)
+light_energy = 4.56
+spot_range = 18.982
+spot_angle_attenuation = 11.7126
+
+[node name="omnis" type="Node3D" parent="Camera & Lights"]
+transform = Transform3D(-0.910244, 0.160501, 0.3817, 0.173648, 0.984808, -1.62734e-07, -0.375901, 0.0662813, -0.924286, 8.86274, 2.34403, -12.7232)
+
+[node name="SpotLight3D3" type="OmniLight3D" parent="Camera & Lights/omnis"]
+transform = Transform3D(-0.910244, 0.375901, 0.173648, 0.160501, -0.0662814, 0.984808, 0.3817, 0.924286, -1.19786e-07, -7.30101, 3.74161, -7.08587)
 light_color = Color(0.658824, 1, 1, 1)
 light_energy = 16.0
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 22.816
-omni_attenuation = 0.54
+omni_attenuation = 2.308
+
+[node name="Camera3D_02" type="Camera3D" parent="Camera & Lights"]
+transform = Transform3D(-0.910244, 0.160501, 0.381698, 0.173648, 0.984808, -1.62734e-07, -0.375899, 0.0662811, -0.924287, 8.86274, 2.34403, -12.7232)
+fov = 56.5
+script = ExtResource("3_vqvff")
+
+[node name="Camera3D_03" type="Camera3D" parent="Camera & Lights"]
+transform = Transform3D(-0.823137, 0.223697, -0.521925, 0, 0.919135, 0.393942, 0.567843, 0.324268, -0.756575, -9.734, 4.955, -12.933)
+script = ExtResource("3_vqvff")
+
+[node name="Camera3D_04" type="Camera3D" parent="Camera & Lights"]
+transform = Transform3D(0.71702, 0.274598, -0.640685, 2.91888e-08, 0.919135, 0.393942, 0.697052, -0.282464, 0.659039, -9.51882, 4.955, 13.0053)
+script = ExtResource("3_vqvff")
+
+[node name="Camera3D_05" type="Camera3D" parent="Camera & Lights"]
+transform = Transform3D(-0.74019, -0.154309, 0.654449, 0.159606, 0.905171, 0.393942, -0.653177, 0.396047, -0.645371, 8.26323, 5.40828, 14.761)
+current = true
+script = ExtResource("3_vqvff")
 
 [node name="TitleUI" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TitleUI"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -283.0
-offset_top = -497.0
-offset_right = 283.0
-offset_bottom = -438.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 75
-alignment = 1
-
-[node name="Label" type="Label" parent="TitleUI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -225.0
-offset_top = 43.0
-offset_right = 225.0
-offset_bottom = 164.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.564706, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.270588, 0, 0, 1)
-theme_override_constants/line_spacing = -19
-theme_override_constants/shadow_offset_x = -1
-theme_override_constants/shadow_offset_y = 5
-theme_override_font_sizes/font_size = 51
-text = "BEWARE:
-THE LIVING ROOM"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TitleUI"]
+[node name="UIButtons" type="VBoxContainer" parent="TitleUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -152.0
-offset_top = -123.0
+offset_top = -127.0
 offset_right = 152.0
-offset_bottom = 123.0
+offset_bottom = 174.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="play" type="Button" parent="TitleUI/VBoxContainer"]
+[node name="play" type="Button" parent="TitleUI/UIButtons"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.827451, 0, 0, 1)
-theme_override_font_sizes/font_size = 37
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_wpukp")
+theme_override_font_sizes/font_size = 58
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ds13r")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds13r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ds13r")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tktyh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ds13r")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ds13r")
 text = "Play"
 
-[node name="settings" type="Button" parent="TitleUI/VBoxContainer"]
+[node name="settings" type="Button" parent="TitleUI/UIButtons"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.827451, 0, 0, 1)
-theme_override_font_sizes/font_size = 37
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_wpukp")
+theme_override_font_sizes/font_size = 58
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ds13r")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds13r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ds13r")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tktyh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ds13r")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ds13r")
 text = "Settings"
 
-[node name="quit" type="Button" parent="TitleUI/VBoxContainer"]
+[node name="quit" type="Button" parent="TitleUI/UIButtons"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.827451, 0, 0, 1)
-theme_override_font_sizes/font_size = 37
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_wpukp")
+theme_override_font_sizes/font_size = 58
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ds13r")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ds13r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ds13r")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ds13r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tktyh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ds13r")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ds13r")
 text = "Quit"
+
+[node name="Top" type="TextureRect" parent="TitleUI"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -365.0
+offset_top = 84.0
+offset_right = 366.0
+offset_bottom = 305.0
+grow_horizontal = 2
+texture = ExtResource("45_p2uin")
+expand_mode = 1
+
+[node name="Bottom" type="TextureRect" parent="TitleUI/Top"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -291.5
+offset_top = 204.0
+offset_right = 290.5
+offset_bottom = 292.0
+grow_horizontal = 2
+texture = ExtResource("46_vqvff")
+expand_mode = 1
+
+[node name="PATC2" type="Label" parent="TitleUI"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.5
+offset_top = 232.0
+offset_right = 298.5
+offset_bottom = 287.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_tktyh")
+theme_override_font_sizes/font_size = 37
+text = "PRESS ANY KEY TO BEGIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" parent="TitleUI" instance=ExtResource("19_aqogk")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -189.0
+offset_right = -43.0
+offset_bottom = -47.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleUI/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -501.0
+offset_top = -148.0
+offset_right = -146.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Warning" type="Label" parent="TitleUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_wpukp")
+theme_override_font_sizes/font_size = 36
+text = "Heads up!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Warning2" type="Label" parent="TitleUI/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(355.345, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_wpukp")
+theme_override_font_sizes/font_size = 24
+text = "This game contains flashing lights and other visuals that may cause eye strain."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="creds" type="VBoxContainer" parent="TitleUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 57.0
+offset_top = -193.0
+offset_right = 735.0
+offset_bottom = -26.0
+grow_vertical = 0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Plant" type="Label" parent="TitleUI/creds"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_c7ggl")
+theme_override_font_sizes/font_size = 25
+text = "Plant - Programming"
+vertical_alignment = 1
+
+[node name="Klip" type="Label" parent="TitleUI/creds"]
+custom_minimum_size = Vector2(355.345, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_c7ggl")
+theme_override_font_sizes/font_size = 25
+text = "KLIPINITY - Art, Textures & Audio"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Dobert" type="Label" parent="TitleUI/creds"]
+custom_minimum_size = Vector2(355.345, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_c7ggl")
+theme_override_font_sizes/font_size = 25
+text = "Dobert - Models & Design"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="in_camera_shader" type="ColorRect" parent="TitleUI"]
+material = SubResource("ShaderMaterial_vqvff")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="tint_color_blue" type="ColorRect" parent="TitleUI/in_camera_shader"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.113725, 0.207843, 0.341176, 0.0980392)
+metadata/_edit_use_anchors_ = true
+
+[node name="Fade" type="ColorRect" parent="TitleUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [node name="TitleAnim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -746,4 +1029,347 @@ libraries = {
 }
 autoplay = "title"
 
-[editable path="spooky_level_9_30"]
+[node name="Main Scene" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -1.48118e-05, 0, 1, 0, 1.48118e-05, 0, 1, 10.6224, -0.0295808, 8.45778)
+
+[node name="furniture" type="Node3D" parent="Main Scene"]
+transform = Transform3D(-0.657375, 0, 0.753564, 0, 1, 0, -0.753564, 0, -0.657375, -4.81274, -0.0408945, -16.7643)
+
+[node name="dining_chair" type="Node3D" parent="Main Scene/furniture"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="dining_chair_01" parent="Main Scene/furniture/dining_chair" instance=ExtResource("5_yjwoi")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="dining_chair_02" parent="Main Scene/furniture/dining_chair" instance=ExtResource("5_yjwoi")]
+transform = Transform3D(0.264328, 0, 0.964433, 0, 1, 0, -0.964433, 0, 0.264328, -1.75693, 0, 1.31963)
+
+[node name="dining_chair_03" parent="Main Scene/furniture/dining_chair" instance=ExtResource("5_yjwoi")]
+transform = Transform3D(-0.98365, 0, 0.18009, 0, 1, 0, -0.18009, 0, -0.98365, -0.624158, 0, 3.46381)
+
+[node name="dining_chair_04" parent="Main Scene/furniture/dining_chair" instance=ExtResource("5_yjwoi")]
+transform = Transform3D(-0.797889, 0, -0.602804, 0, 1, 0, 0.602804, 0, -0.797889, 1.49785, 0, 3.43351)
+
+[node name="dining_chair_05" parent="Main Scene/furniture/dining_chair" instance=ExtResource("5_yjwoi")]
+transform = Transform3D(0.40297, 0, -0.915213, 0, 1, 0, 0.915213, 0, 0.40297, 1.9655, 0, 0.953712)
+
+[node name="dining_table" parent="Main Scene/furniture" instance=ExtResource("6_g4gru")]
+transform = Transform3D(-0.994658, 0, -0.103224, 0, 1, 0, 0.103224, 0, -0.994658, 0.180057, 0.0139422, 1.59977)
+
+[node name="night_stand" type="Node3D" parent="Main Scene/furniture"]
+transform = Transform3D(-0.753481, 0, 0.657469, 0, 1, 0, -0.657469, 0, -0.753481, 1.49358, 0.0826062, -8.80878)
+
+[node name="night_stand_01" parent="Main Scene/furniture/night_stand" instance=ExtResource("7_7s5iw")]
+transform = Transform3D(0.996805, 0, 0.0798684, 0, 1, 0, -0.0798684, 0, 0.996805, -4.76837e-07, 0, -9.53674e-07)
+
+[node name="night_stand_02" parent="Main Scene/furniture/night_stand" instance=ExtResource("7_7s5iw")]
+transform = Transform3D(0.990899, 0, -0.134609, 0, 1, 0, 0.134609, 0, 0.990899, 7.23169, 0, 0.0315987)
+
+[node name="night_stand_03" parent="Main Scene/furniture/night_stand" instance=ExtResource("7_7s5iw")]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 21.5485, 0, -11.1212)
+
+[node name="living_room_chair" type="Node3D" parent="Main Scene/furniture"]
+transform = Transform3D(0.452168, 0, -0.891933, 0, 1, 0, 0.891933, 0, 0.452168, 0.0405927, 0.0704753, -19.1746)
+
+[node name="living_room_chair_01" parent="Main Scene/furniture/living_room_chair" instance=ExtResource("8_k35rw")]
+
+[node name="living_room_chair_02" parent="Main Scene/furniture/living_room_chair" instance=ExtResource("8_k35rw")]
+transform = Transform3D(0.66348, 0, 0.748194, 0, 1, 0, -0.748194, 0, 0.66348, -5.40317, 0, 2.03672)
+
+[node name="living_room_stand" parent="Main Scene/furniture" instance=ExtResource("9_jryob")]
+transform = Transform3D(-0.657364, 0, -0.753573, 0, 1, 0, 0.753573, 0, -0.657364, -1.50073, -0.0163835, -21.5349)
+
+[node name="couch" parent="Main Scene/furniture" instance=ExtResource("10_dnyg8")]
+transform = Transform3D(-0.760406, 0, 0.649448, 0, 1, 0, -0.649448, 0, -0.760406, -1.47842, 0.0704753, -10.9548)
+
+[node name="tv_stand" parent="Main Scene/furniture" instance=ExtResource("12_784tc")]
+transform = Transform3D(0.753573, 0, -0.657364, 0, 1, 0, 0.657364, 0, 0.753573, 3.65238, 0.0704753, -16.8267)
+
+[node name="archviz" type="Node3D" parent="Main Scene"]
+transform = Transform3D(1, 0, -9.09495e-13, 0, 1, 0, 9.09495e-13, 0, 1, 9.53674e-07, 0, 0)
+
+[node name="door" type="Node3D" parent="Main Scene/archviz"]
+transform = Transform3D(1, 0, 9.09495e-13, 0, 1, 0, -9.09495e-13, 0, 1, 0, 0, 0)
+
+[node name="door_01" parent="Main Scene/archviz/door" instance=ExtResource("11_4yl2o")]
+transform = Transform3D(1, 0, 9.09495e-13, 0, 1, 0, -9.09495e-13, 0, 1, 9.53674e-07, 0, -0.0208015)
+
+[node name="door_02" parent="Main Scene/archviz/door" instance=ExtResource("11_4yl2o")]
+transform = Transform3D(-0.0191975, 0, 0.999816, 0, 1, 0, -0.999816, 0, -0.0191975, -14.9206, 0, -21.7859)
+
+[node name="door_03" parent="Main Scene/archviz/door" instance=ExtResource("11_4yl2o")]
+transform = Transform3D(0.999967, 0, 0.00806343, 0, 1, 0, -0.00806343, 0, 0.999967, -13.512, 0, 9.951)
+
+[node name="door_04" parent="Main Scene/archviz/door" instance=ExtResource("11_4yl2o")]
+transform = Transform3D(0.999976, 0, -0.00698128, 0, 1, 0, 0.00698128, 0, 0.999976, -18.659, 0.121, 13.914)
+
+[node name="door_05" parent="Main Scene/archviz/door" instance=ExtResource("11_4yl2o")]
+transform = Transform3D(0.999967, 0, 0.00806343, 0, 1, 0, -0.00806343, 0, 0.999967, -4.62205, 0.118169, 19.7824)
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Main Scene/archviz/door/door_05"]
+stream = ExtResource("18_gm158")
+volume_db = -0.138
+
+[node name="door_06" parent="Main Scene/archviz/door" instance=ExtResource("11_4yl2o")]
+transform = Transform3D(-4.37113e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -4.37113e-08, -3.486, -0.022, 15.581)
+
+[node name="door_07" parent="Main Scene/archviz/door" instance=ExtResource("11_4yl2o")]
+transform = Transform3D(-4.37112e-08, 0, -1, 0, 1, 0, -1, 0, 4.37112e-08, -17.4345, -0.022, 21.178)
+
+[node name="door_08" parent="Main Scene/archviz/door" instance=ExtResource("11_4yl2o")]
+transform = Transform3D(-4.37112e-08, 0, -1, 0, 1, 0, -1, 0, 4.37112e-08, -10.9311, -0.022, 21.1779)
+
+[node name="light_switch" type="Node3D" parent="Main Scene/archviz"]
+
+[node name="light_switch_double_01" parent="Main Scene/archviz/light_switch" instance=ExtResource("17_bjs8b")]
+transform = Transform3D(1.4768e-05, 0, -1, 0, 1, 0, 1, 0, 1.4768e-05, -0.187968, 2.09652, -3.11692)
+
+[node name="light_switch_double_02" parent="Main Scene/archviz/light_switch" instance=ExtResource("17_bjs8b")]
+transform = Transform3D(1.4768e-05, 0, -1, 0, 1, 0, 1, 0, 1.4768e-05, -0.188016, 2.09652, -6.32687)
+
+[node name="light_switch_double_03" parent="Main Scene/archviz/light_switch" instance=ExtResource("17_bjs8b")]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -17.9957, 2.09652, -21.5401)
+
+[node name="light_switch_single_01" parent="Main Scene/archviz/light_switch" instance=ExtResource("19_xraam")]
+transform = Transform3D(-1, 0, -1.48992e-05, 0, 1, 0, 1.48992e-05, 0, -1, -14.5147, 2.09642, 5.18623)
+
+[node name="light_switch_single_02" parent="Main Scene/archviz/light_switch" instance=ExtResource("19_xraam")]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -14.511, 2.09642, 4.67802)
+
+[node name="light_switch_single_03" parent="Main Scene/archviz/light_switch" instance=ExtResource("19_xraam")]
+transform = Transform3D(-4.37112e-08, 0, -1, 0, 1, 0, 1, 0, -4.37112e-08, -13.1847, 2.09642, 6.93125)
+
+[node name="outlet" type="Node3D" parent="Main Scene/archviz"]
+
+[node name="outlet_01" parent="Main Scene/archviz/outlet" instance=ExtResource("18_dawno")]
+transform = Transform3D(-1, 0, -1.48992e-05, 0, 1, 0, 1.48992e-05, 0, -1, -3.22093, 2.32596, 4.67037)
+
+[node name="outlet_02" parent="Main Scene/archviz/outlet" instance=ExtResource("18_dawno")]
+transform = Transform3D(1.4768e-05, 0, -1, 0, 1, 0, 1, 0, 1.4768e-05, -0.203906, 0.56579, 1.08444)
+
+[node name="outlet_03" parent="Main Scene/archviz/outlet" instance=ExtResource("18_dawno")]
+transform = Transform3D(1.4768e-05, 0, -1, 0, 1, 0, 1, 0, 1.4768e-05, -0.203996, 2.07596, -4.95622)
+
+[node name="outlet_04" parent="Main Scene/archviz/outlet" instance=ExtResource("18_dawno")]
+transform = Transform3D(1.4768e-05, 0, -1, 0, 1, 0, 1, 0, 1.4768e-05, -0.204098, 2.07596, -11.8945)
+
+[node name="outlet_05" parent="Main Scene/archviz/outlet" instance=ExtResource("18_dawno")]
+transform = Transform3D(1.4768e-05, 0, -1, 0, 1, 0, 1, 0, 1.4768e-05, -0.204132, 0.567502, -14.1627)
+
+[node name="outlet_06" parent="Main Scene/archviz/outlet" instance=ExtResource("18_dawno")]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -6.24149, 0.567502, -21.5245)
+
+[node name="outlet_07" parent="Main Scene/archviz/outlet" instance=ExtResource("18_dawno")]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -17.9038, 0.567502, -21.5243)
+
+[node name="outlet_08" parent="Main Scene/archviz/outlet" instance=ExtResource("18_dawno")]
+transform = Transform3D(-1, 0, -1.48992e-05, 0, 1, 0, 1.48992e-05, 0, -1, -14.5157, 0.566503, 4.66534)
+
+[node name="outlet_09" parent="Main Scene/archviz/outlet" instance=ExtResource("18_dawno")]
+transform = Transform3D(-4.37112e-08, 0, -1, 0, 1, 0, 1, 0, -4.37112e-08, -11.157, 0.566503, 1.22691)
+
+[node name="outlet_10" parent="Main Scene/archviz/outlet" instance=ExtResource("18_dawno")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, -10.5571, 2.076, -4.73702)
+
+[node name="outlet_11" parent="Main Scene/archviz/outlet" instance=ExtResource("18_dawno")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, -10.5572, 2.076, -12.2747)
+
+[node name="outlet_12" parent="Main Scene/archviz/outlet" instance=ExtResource("18_dawno")]
+transform = Transform3D(-1, 0, -8.74224e-08, 0, 1, 0, 8.74224e-08, 0, -1, -4.23322, 0.566216, 15.4317)
+
+[node name="walls" type="Node3D" parent="Main Scene/archviz"]
+transform = Transform3D(-1, 0, 1.49628e-05, 0, 1, 0, 1.49628e-05, 0, 1, 0.0602951, 0.0295808, -9.1269)
+
+[node name="wall_01" parent="Main Scene/archviz/walls" instance=ExtResource("36_8oqsj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-07, 0, 0)
+
+[node name="wall_02" parent="Main Scene/archviz/walls" instance=ExtResource("36_tktbg")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, 1.50996e-07, 0, 1, 10.9133, 0, 0.663167)
+
+[node name="wall_03" parent="Main Scene/archviz/walls" instance=ExtResource("36_qfook")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, 1.50996e-07, 0, 1, 21.3053, 0, 0.416985)
+
+[node name="wall_04" parent="Main Scene/archviz/walls" instance=ExtResource("39_c6aop")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, 1.50996e-07, 0, 1, 9.97686, -2.38419e-07, -12.6486)
+
+[node name="wall_05" parent="Main Scene/archviz/walls" instance=ExtResource("40_p3wtu")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, 1.50996e-07, 0, 1, 13.4646, 0, 14.0463)
+
+[node name="wall_06" parent="Main Scene/archviz/walls" instance=ExtResource("41_qteuk")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, 1.50996e-07, 0, 1, 16.0443, -0.010927, 26.3038)
+
+[node name="wall_07" parent="Main Scene/archviz/walls" instance=ExtResource("42_h2jgp")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, 1.50996e-07, 0, 1, 5.27883, 0, 23.9011)
+
+[node name="shelving_unit" parent="Main Scene/archviz" instance=ExtResource("12_awdk6")]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -12.8326, 0.0353993, -20.9063)
+
+[node name="shoe_rack" parent="Main Scene/archviz" instance=ExtResource("13_7uqqr")]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -19.4723, 0.0271707, -20.8849)
+
+[node name="holder" parent="Main Scene/archviz" instance=ExtResource("15_rtgr4")]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -18.4353, 2.90716, -21.4948)
+
+[node name="trash_can" parent="Main Scene/archviz" instance=ExtResource("16_agu86")]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -2.19165, 0.0372165, 3.66205)
+
+[node name="sink" parent="Main Scene/archviz" instance=ExtResource("30_frsho")]
+transform = Transform3D(-1.48555e-05, 0, 1, 0, 1, 0, -1, 0, -1.48555e-05, -1.02853, 0.391581, -8.46576)
+
+[node name="bed" parent="Main Scene/archviz" instance=ExtResource("33_vcgg2")]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -2.80232, 0.0295808, 6.89726)
+
+[node name="cabinet" parent="Main Scene/archviz" instance=ExtResource("34_a7fu6")]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -6.56077, -0.0386244, 14.576)
+
+[node name="tv_stand_02" parent="Main Scene/archviz" instance=ExtResource("34_054mk")]
+transform = Transform3D(0.766034, 0, 0.642799, 0, 1, 0, -0.642799, 0, 0.766034, -11.4125, 0.0295808, 13.4738)
+
+[node name="base_board" parent="Main Scene/archviz" instance=ExtResource("27_054mk")]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -11.261, -0.005, 2.933)
+
+[node name="ceiling" type="CSGBox3D" parent="Main Scene/archviz"]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -15.484, 6.116, 32.412)
+material_override = SubResource("StandardMaterial3D_oqbyu")
+size = Vector3(31.9647, 1, 108.778)
+
+[node name="floor" type="MeshInstance3D" parent="Main Scene/archviz"]
+transform = Transform3D(31.8942, 0, 0.00047241, 0, 31.8942, 0, -0.00047241, 0, 31.8942, -31.044, 0.03, 8.772)
+mesh = SubResource("PlaneMesh_7hvf5")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_yjwoi")
+
+[node name="kitchen_area" type="Node3D" parent="Main Scene"]
+transform = Transform3D(1.4768e-05, 0, -1, 0, 1, 0, 1, 0, 1.4768e-05, -3.63959, 3.9768, 3.63923)
+
+[node name="static_kitchen_drawer_01" parent="Main Scene/kitchen_area" instance=ExtResource("21_ucj5f")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, -12.0633, -4.03184, -2.5205)
+
+[node name="kitchen_drawer_07" parent="Main Scene/kitchen_area/static_kitchen_drawer_01" instance=ExtResource("23_bqdq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.779592, 1.23346, -3.57209)
+
+[node name="kitchen_drawer_08" parent="Main Scene/kitchen_area/static_kitchen_drawer_01" instance=ExtResource("23_bqdq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.779592, 0.76324, -3.57209)
+
+[node name="kitchen_drawer_09" parent="Main Scene/kitchen_area/static_kitchen_drawer_01" instance=ExtResource("23_bqdq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.779592, 0.306021, -3.57209)
+
+[node name="kitchen_drawer_10" parent="Main Scene/kitchen_area/static_kitchen_drawer_01" instance=ExtResource("23_bqdq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.779592, 1.23346, 3.64243)
+
+[node name="kitchen_drawer_11" parent="Main Scene/kitchen_area/static_kitchen_drawer_01" instance=ExtResource("23_bqdq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.779592, 0.76324, 3.64243)
+
+[node name="kitchen_drawer_12" parent="Main Scene/kitchen_area/static_kitchen_drawer_01" instance=ExtResource("23_bqdq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.779592, 0.306021, 3.64243)
+
+[node name="kitchen_cabinet_01" parent="Main Scene/kitchen_area/static_kitchen_drawer_01" instance=ExtResource("24_wfckv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386828, 3.78083, -3.12496)
+
+[node name="kitchen_cabinet_02" parent="Main Scene/kitchen_area/static_kitchen_drawer_01" instance=ExtResource("24_wfckv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0.386828, 3.7954, 3.20514)
+
+[node name="kitchen_cabinet_doors_01" parent="Main Scene/kitchen_area/static_kitchen_drawer_01" instance=ExtResource("25_qp135")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.802771, 0.781372, 0.0625936)
+
+[node name="static_kitchen_drawer_02" parent="Main Scene/kitchen_area" instance=ExtResource("22_bqdq2")]
+transform = Transform3D(-4.37116e-08, 0, -1, 0, 1, 0, 1, 0, -4.37116e-08, -12.2046, -3.94722, 5.9901)
+
+[node name="kitchen_cabinet_03" parent="Main Scene/kitchen_area/static_kitchen_drawer_02" instance=ExtResource("24_wfckv")]
+transform = Transform3D(1, 0, 6.3573e-08, 0, 1, 0, 6.3573e-08, 0, -1, 0.392922, 3.71616, 3.55929)
+
+[node name="kitchen_cabinet_04" parent="Main Scene/kitchen_area/static_kitchen_drawer_02" instance=ExtResource("24_wfckv")]
+transform = Transform3D(1, 8.74228e-08, 1.74846e-07, -8.74228e-08, 1, 0, -1.74846e-07, -1.52855e-14, 1, 0.393672, 3.71077, -3.90465)
+
+[node name="kitchen_drawer_07" parent="Main Scene/kitchen_area/static_kitchen_drawer_02" instance=ExtResource("23_bqdq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774778, 1.2684, 3.63127)
+
+[node name="kitchen_drawer_08" parent="Main Scene/kitchen_area/static_kitchen_drawer_02" instance=ExtResource("23_bqdq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774778, 0.781566, 3.63127)
+
+[node name="kitchen_drawer_09" parent="Main Scene/kitchen_area/static_kitchen_drawer_02" instance=ExtResource("23_bqdq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774778, 0.300393, 3.63127)
+
+[node name="kitchen_drawer_10" parent="Main Scene/kitchen_area/static_kitchen_drawer_02" instance=ExtResource("23_bqdq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774778, 1.2684, -3.55941)
+
+[node name="kitchen_drawer_11" parent="Main Scene/kitchen_area/static_kitchen_drawer_02" instance=ExtResource("23_bqdq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774778, 0.781566, -3.55941)
+
+[node name="kitchen_drawer_12" parent="Main Scene/kitchen_area/static_kitchen_drawer_02" instance=ExtResource("23_bqdq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774778, 0.300393, -3.55941)
+
+[node name="kitchen_cabinet_door_03" parent="Main Scene/kitchen_area/static_kitchen_drawer_02" instance=ExtResource("25_qp135")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -0.795336, 0.752, 0.0230089)
+
+[node name="kitchen_cabinet_04" parent="Main Scene/kitchen_area" instance=ExtResource("26_qb06g")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, -9.53674e-07, 0, 9.53674e-07)
+
+[node name="kitchen_cabinet_05" parent="Main Scene/kitchen_area" instance=ExtResource("26_qb06g")]
+transform = Transform3D(1, 0, 1.63425e-13, 0, 1, 0, 1.63425e-13, 0, -1, -9.53674e-07, 0, 3.58369)
+
+[node name="kitchen_cabinet_06" parent="Main Scene/kitchen_area" instance=ExtResource("26_qb06g")]
+transform = Transform3D(1, 0, 1.63425e-13, 0, 1, 0, 1.63425e-13, 0, -1, -9.53674e-07, -3.07437, 3.58369)
+
+[node name="kitchen_cabinet_07" parent="Main Scene/kitchen_area" instance=ExtResource("26_qb06g")]
+transform = Transform3D(1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, 4.86374e-05, -3.07422, -0.000236988)
+
+[node name="stove_hood2" parent="Main Scene/kitchen_area" instance=ExtResource("5_xuxxd")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, -0.975765, -0.689218, 1.81276)
+
+[node name="stove_hood_light" type="OmniLight3D" parent="Main Scene/kitchen_area/stove_hood2"]
+light_color = Color(0.637827, 0.722952, 0.802734, 1)
+light_energy = 0.1
+omni_range = 2.56
+omni_attenuation = 3.5
+
+[node name="oven" parent="Main Scene/kitchen_area" instance=ExtResource("23_lq4su")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, -0.007, -3.947, 1.775)
+
+[node name="oven_inside_light" type="OmniLight3D" parent="Main Scene/kitchen_area/oven"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0377626, 0.942041, -0.215896)
+light_color = Color(0.972368, 0.723947, 0.355168, 1)
+omni_range = 1.209
+omni_attenuation = 2.683
+
+[node name="fridge" parent="Main Scene/kitchen_area" instance=ExtResource("29_iftfp")]
+transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 0.00842285, -3.94722, 5.7386)
+
+[node name="props" type="Node3D" parent="Main Scene"]
+transform = Transform3D(1, 0, 1.48118e-05, 0, 1, 0, -1.48118e-05, 0, 1, -12.8019, 0.0353993, -20.7257)
+
+[node name="tv_01" parent="Main Scene/props" instance=ExtResource("20_1cwff")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.04674, 0.948782, 12.2637)
+
+[node name="tv_02" parent="Main Scene/props" instance=ExtResource("20_1cwff")]
+transform = Transform3D(0.598045, 0, -0.801463, 0, 1, 0, 0.801463, 0, 0.598045, 1.48877, 1.46579, 34.139)
+
+[node name="lamp_01" parent="Main Scene/props" instance=ExtResource("26_d4ue3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.32055, 1.36505, 19.2775)
+
+[node name="lamp_01_light" type="OmniLight3D" parent="Main Scene/props/lamp_01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.928678, 0)
+light_color = Color(0.871531, 0.787386, 0.613863, 1)
+omni_range = 6.45035
+omni_attenuation = 3.857
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Main Scene"]
+transform = Transform3D(0.645, 0, 0, 0, 5.45, 0, 0, 0, 3.545, -4.119, 2.328, 18.607)
+material = SubResource("StandardMaterial3D_wpukp")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("46_p2uin")
+pitch_scale = 0.8
+autoplay = true
+bus = &"Music"
+
+[node name="ExCam" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_aqogk")
+}
+
+[node name="UIAudio" type="AudioStreamPlayer" parent="."]
+volume_db = -9.629
+pitch_scale = 0.83
+max_polyphony = 311
+bus = &"SFX"

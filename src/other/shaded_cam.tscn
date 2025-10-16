@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdfdakxu8vhln"]
+
+[ext_resource type="Shader" uid="uid://wj765fuh47ji" path="res://shaders/DOF.gdshader" id="1_fkpd6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjwoi"]
+render_priority = 0
+shader = ExtResource("1_fkpd6")
+shader_parameter/focus_distance = 71.575
+shader_parameter/focus_range = 1.495
+shader_parameter/max_blur_uv = 0.038
+shader_parameter/depth_power = -0.826
+
+[sub_resource type="QuadMesh" id="QuadMesh_dxgwh"]
+material = SubResource("ShaderMaterial_yjwoi")
+flip_faces = true
+size = Vector2(4, 4)
+
+[node name="ShadedCam" type="Camera3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.257461, 0, 0, 0, 0.257461, 0, 0, 0, 0.257461, -0.0610561, 0, -0.199398)
+mesh = SubResource("QuadMesh_dxgwh")

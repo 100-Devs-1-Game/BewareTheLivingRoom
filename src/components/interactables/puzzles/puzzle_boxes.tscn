@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://db88b6qclm21k"]
+
+[ext_resource type="Script" uid="uid://di5sw6m2xqnka" path="res://components/interactables/puzzles/puzzle_boxes.gd" id="1_fowyu"]
+[ext_resource type="PackedScene" uid="uid://ou5jaldhps6" path="res://components/interactables/puzzles/color_block.tscn" id="2_y3vlw"]
+[ext_resource type="Script" uid="uid://i0qqf878ga1r" path="res://components/interactables/interact controller/interactor.gd" id="3_8xpbi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0rjwt"]
+size = Vector3(2.12134, 0.603149, 1)
+
+[node name="PuzzleBoxes" type="Node3D" node_paths=PackedStringArray("interactor")]
+script = ExtResource("1_fowyu")
+required_number = 1
+interactor = NodePath("InteractionHandler")
+
+[node name="Red Block" parent="." instance=ExtResource("2_y3vlw")]
+color_id = "RED"
+
+[node name="Violet Block" parent="." instance=ExtResource("2_y3vlw")]
+color_id = "VIOLET"
+
+[node name="Green Block" parent="." instance=ExtResource("2_y3vlw")]
+color_id = "GREEN"
+
+[node name="Blue Block" parent="." instance=ExtResource("2_y3vlw")]
+color_id = "BLUE"
+
+[node name="White Block" parent="." instance=ExtResource("2_y3vlw")]
+color_id = "WHITE"
+
+[node name="Orange Block" parent="." instance=ExtResource("2_y3vlw")]
+color_id = "ORANGE"
+
+[node name="InteractionHandler" type="Area3D" parent="." node_paths=PackedStringArray("parent", "camera_from", "camera_to")]
+script = ExtResource("3_8xpbi")
+parent = NodePath("..")
+disable_collision_on_observe = true
+emit_signal_id = 3
+observe_camera = true
+camera_from = NodePath("../From")
+camera_to = NodePath("../To")
+metadata/_custom_type_script = "uid://i0qqf878ga1r"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionHandler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0657349, 0)
+shape = SubResource("BoxShape3D_0rjwt")
+
+[node name="From" type="Marker3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.72849e-08, 0.207425, -1.60815)
+
+[node name="To" type="Marker3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.72849e-08, 0.130312, -0.155899)

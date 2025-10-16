@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<look>
+  <shaders>
+    <shader>
+      <name>"LUT"</name>
+      <visible>"1"</visible>
+      <opacity>"1"</opacity>
+      <mask>"0"</mask>
+      <vectormask>"0"</vectormask>
+      <parameters>
+          <LUT>"GSG_LUT_Cinematic_AlienMovie.cube"</LUT>
+      </parameters>
+    </shader>
+  </shaders>
+</look>

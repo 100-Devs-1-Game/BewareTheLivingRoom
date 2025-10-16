@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://drrm0mwkovewa"]
+
+[ext_resource type="Script" uid="uid://de5berw56hpv0" path="res://components/enviroment/signal_spot_light_3d.gd" id="1_80o8u"]
+
+[node name="SignalSpotLight3D" type="SpotLight3D"]
+shadow_enabled = true
+script = ExtResource("1_80o8u")
