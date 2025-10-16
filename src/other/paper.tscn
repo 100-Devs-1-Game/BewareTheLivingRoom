@@ -99,10 +99,11 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.370364, 0.370364, 0.370364, 1)
 theme_override_constants/line_spacing = 31
 theme_override_font_sizes/font_size = 34
-text = "Reflections trace shadows across distant kin,
-The sly glimpses nearby, guardians beyond reach.
-Loyal eyes mark sly shadows afar, kin close at hand, secrets hiding in corners,
-Loyalty meets emptiness, reflections converge, wings follow familiar paths.
+text = "The Cat faces the closet while the dog faces another.
+
+The fox watches the pigeon and a cat like no other, but this cat stalks another of its observer and a brother.
+
+
 
 Spin the animals"
 horizontal_alignment = 1
