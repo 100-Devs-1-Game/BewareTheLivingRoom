@@ -125,4 +125,3 @@ sync_to_physics = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03626, -1.24607)
 shape = SubResource("BoxShape3D_7lda8")
-disabled = true
