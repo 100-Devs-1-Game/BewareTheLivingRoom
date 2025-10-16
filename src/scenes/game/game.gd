@@ -6,6 +6,8 @@ var game_running: bool = true
 @export var IntroCam: Camera3D
 @export var important_objects: Array[Node3D]
 @export var debug_mode: bool = false
+@export var exit_door: Node
+
 
 @export var pos_threshold: float = 0.02
 @export var rot_threshold: float = 0.02
@@ -30,7 +32,7 @@ func _ready() -> void:
 		await get_tree().create_timer(1.0).timeout
 		Sceneloader.load_scene("res://other/game_over.tscn")
 		)
-	Eventbus.unlock_called.connect(func(id): if id == 10: end_game())
+	Eventbus.unlock_called.connect(func(id): if id == 10 and !exit_door.locked: end_game())
 
 	$RainSound.finished.connect(func(): $RainSound.play())
 

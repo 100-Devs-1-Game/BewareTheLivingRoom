@@ -119,4 +119,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1453, 0)
 stream = ExtResource("5_sgpkt")
 volume_db = -24.742
 autoplay = true
+bus = &"SFX"
 parameters/looping = true

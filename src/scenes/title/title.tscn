@@ -769,7 +769,6 @@ spot_angle_attenuation = 5.27803
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="Camera & Lights/spotlights"]
 transform = Transform3D(-0.112061, 0.114402, -0.987094, -0.681422, 0.714159, 0.160129, 0.723261, 0.690571, -0.00207344, 2.89537, -2.7644, 4.33626)
-visible = false
 light_color = Color(0.90672, 0.793455, 0.519834, 1)
 light_energy = 4.56
 spot_range = 18.982
@@ -823,7 +822,6 @@ theme_override_constants/separation = 32
 alignment = 1
 
 [node name="play" type="Button" parent="TitleUI/UIButtons"]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.827451, 0, 0, 1)
@@ -839,7 +837,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ds13r")
 text = "Play"
 
 [node name="settings" type="Button" parent="TitleUI/UIButtons"]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.827451, 0, 0, 1)
@@ -855,7 +852,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ds13r")
 text = "Settings"
 
 [node name="quit" type="Button" parent="TitleUI/UIButtons"]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.827451, 0, 0, 1)
@@ -1326,7 +1322,7 @@ omni_attenuation = 3.5
 [node name="oven" parent="Main Scene/kitchen_area" instance=ExtResource("23_lq4su")]
 transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, -0.007, -3.947, 1.775)
 
-[node name="oven_inside_light" type="OmniLight3D" parent="Main Scene/kitchen_area/oven"]
+[node name="oven_inside_light2" type="OmniLight3D" parent="Main Scene/kitchen_area/oven"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0377626, 0.942041, -0.215896)
 light_color = Color(0.972368, 0.723947, 0.355168, 1)
 omni_range = 1.209

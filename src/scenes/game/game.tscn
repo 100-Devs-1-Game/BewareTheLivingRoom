@@ -487,11 +487,12 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_0bk81"]
 size = Vector3(3.02539, 2.09131, 2.1123)
 
-[node name="Game" type="Node3D" node_paths=PackedStringArray("IntroAnim", "IntroCam", "important_objects") groups=["world"]]
+[node name="Game" type="Node3D" node_paths=PackedStringArray("IntroAnim", "IntroCam", "important_objects", "exit_door") groups=["world"]]
 script = ExtResource("1_kelw5")
 IntroAnim = NodePath("Entities/IntroCam/IntroAnim")
 IntroCam = NodePath("Entities/IntroCam")
 important_objects = [NodePath("Main Scene/archviz/door/door_03"), NodePath("TwistPuzzle/Spinner/Box"), NodePath("TwistPuzzle/Spinner2/Box"), NodePath("TwistPuzzle/Spinner3/Box"), NodePath("TwistPuzzle/Spinner4/Box"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_04"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_05"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_06"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_07"), NodePath("Main Scene/archviz/door/door"), NodePath("Main Scene/archviz/cabinet/cabinet_drawer_04/cabinet_drawer_04"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_03/kitchen_cabinet_door"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_09/kitchen_cabinet_door"), NodePath("Main Scene/kitchen_area/kitchen_cabinet_08/kitchen_cabinet_door"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_cabinet_door_02/kitchen_cabinet_doors_01"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_cabinet_door_02/kitchen_cabinet_doors_02"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_cabinet_door_02/kitchen_cabinet_doors_03"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_cabinet_door_02/kitchen_cabinet_doors_04"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_01/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_02/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_03/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_04/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_05/kitchen_drawer"), NodePath("Main Scene/kitchen_area/static_kitchen_drawer_02/kitchen_drawer_06/kitchen_drawer"), NodePath("living_room_chair")]
+exit_door = NodePath("Main Scene/archviz/door/door_02")
 
 [node name="Camera & Lights" type="Node3D" parent="."]
 
@@ -1633,6 +1634,77 @@ shape = SubResource("BoxShape3D_0bk81")
 
 [node name="oven" parent="." instance=ExtResource("39_yegcf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23772, 0, 12.0438)
+
+[node name="stove_frame" parent="oven" index="0"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+
+[node name="oven_door" parent="oven" index="1"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="knob_06" parent="oven" index="2"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="knob_05" parent="oven" index="3"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="knob_04" parent="oven" index="4"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="knob_03" parent="oven" index="5"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="knob_02" parent="oven" index="6"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="knob_01" parent="oven" index="7"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="grate" parent="oven" index="8"]
+surface_material_override/0 = null
+
+[node name="burner_middle" parent="oven" index="9"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="burner_left_front" parent="oven" index="10"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="burner_front_right" parent="oven" index="11"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="burner_back_right" parent="oven" index="12"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="burner_back_left" parent="oven" index="13"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+
+[node name="bottom_drawer" parent="oven" index="14"]
+surface_material_override/0 = null
+surface_material_override/1 = null
 
 [connection signal="body_entered" from="Main Scene/OutsideArea" to="." method="_on_outside_area_body_entered"]
 [connection signal="body_exited" from="Main Scene/OutsideArea" to="." method="_on_outside_area_body_exited"]
